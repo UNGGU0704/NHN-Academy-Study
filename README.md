@@ -1,3 +1,3 @@
 # NHN-Academy-Study
 
-git 실습을  위한 저장소입니다.
+NHN 아카데미에서 배운 것들을 기록합니다.
