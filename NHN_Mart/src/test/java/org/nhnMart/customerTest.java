@@ -1,8 +1,9 @@
-package org.nhnMart;
+package org.nhnmart;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 public class customerTest {
 
     @Test
@@ -18,7 +19,7 @@ public class customerTest {
         Customer c = new Customer(10000);
         c.isBuy(5000);
 
-        Assertions.assertEquals(5000,c.getMoney());
+        Assertions.assertEquals(5000, c.getMoney());
     }
 
     @Test

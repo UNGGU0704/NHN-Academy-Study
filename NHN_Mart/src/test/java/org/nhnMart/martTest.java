@@ -1,10 +1,10 @@
-package org.nhnMart;
+package org.nhnmart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class martTest
+class martTest
 {
 
     @Test
