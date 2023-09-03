@@ -10,8 +10,17 @@ public class CustomerTest {
     @Test
     @DisplayName("Coustomer 객체 생성시 buyList null 테스트 ")
     public void createCustomer() {
-        Customer c = new Customer(null);
-        Assertions.assertNull(new Customer(null));
+        //  Customer c = new Customer(null);
+        Assertions.assertThrows(Error.class, () -> new Customer(null));
+    }
+
+    @Test
+    @DisplayName("bring 메소드 실행시 Basket의 null 체크")
+    public void nullCheckbring() {
+        BuyList buyList = new BuyList();
+        Customer c = new Customer(buyList);
+
+        Assertions.assertThrows(Error.class, () -> c.bring(null));
     }
 
     @Test
@@ -24,7 +33,7 @@ public class CustomerTest {
         Basket b = new Basket();
         c.bring(b);
 
-        Food food = new Food("사과",400);
+        Food food = new Food("사과", 400);
         FoodStand foodStand = new FoodStand();
         foodStand.add(food);
 

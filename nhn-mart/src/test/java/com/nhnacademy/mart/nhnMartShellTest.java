@@ -1,8 +1,9 @@
 package com.nhnacademy.mart;
+
 import java.io.ByteArrayInputStream;
 import java.util.NoSuchElementException;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class nhnMartShellTest {
@@ -21,6 +22,6 @@ class nhnMartShellTest {
         System.setIn(new ByteArrayInputStream("양파 2 계란 ".getBytes()));
 
         Assertions.assertThrows(NoSuchElementException.class,
-                () ->NhnMartShell.main(null)); //
+                () -> NhnMartShell.main(null)); //
     }
 }

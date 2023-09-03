@@ -9,17 +9,17 @@ public class FoodTest {
     @Test
     @DisplayName("가격이 음수 셋팅")
     public void minusPrice() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new Food("우유", - 1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Food("우유", -1));
     }
 
     @Test
     @DisplayName("푸드 객체 및 푸드 스탠드 생성 테스트 ")
     public void FoodCreateTest() {
-        Food food = new Food("사과",400);
+        Food food = new Food("사과", 400);
         FoodStand foodStand = new FoodStand();
         foodStand.add(food);
 
-        Assertions.assertEquals("사과",foodStand.get(0).getName());
+        Assertions.assertEquals("사과", foodStand.get(0).getName());
     }
 
     @Test

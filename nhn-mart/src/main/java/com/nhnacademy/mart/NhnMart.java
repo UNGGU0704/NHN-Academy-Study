@@ -1,8 +1,18 @@
 package com.nhnacademy.mart;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * nhn Mart is selling Food.
+ *
+ * @author kIm kyu hyeong
+ */
 public class NhnMart {
 
     private final FoodStand foodStand = new FoodStand();
+    private static final Logger logger = LoggerFactory.getLogger(Customer.class);
 
     public void prepareMart() {
         fillFoodStand();
@@ -22,17 +32,18 @@ public class NhnMart {
         for (int i = 0; i < 20; i++) {
             foodStand.add(new Food("사과", 2_000));
         }
+        logger.info("FoodStand 정상 셋팅 완료.");
     }
 
     public Basket provideBasket() {
         return new Basket();
     }
 
-    public FoodStand getFoodStand(){
+    public FoodStand getFoodStand() {
         return foodStand;
     }
 
-    public FoodStand getCounter(){
+    public FoodStand getCounter() {
         return foodStand;
     }
 

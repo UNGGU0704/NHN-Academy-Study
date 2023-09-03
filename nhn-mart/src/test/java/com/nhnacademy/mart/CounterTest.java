@@ -23,8 +23,8 @@ public class CounterTest {
 
     @Test
     @DisplayName("돈이 부족할 경우 테스트")
-    public void leakMoney(){
-        Food expensiveFood = new Food("비싼 음식",100000);
+    public void leakMoney() {
+        Food expensiveFood = new Food("비싼 음식", 100000);
         Basket basket = new Basket();
         basket.add(expensiveFood);
 
