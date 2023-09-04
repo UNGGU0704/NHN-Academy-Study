@@ -1,0 +1,9 @@
+
+g	java:S112
+"FDefine and throw a dedicated exception instead of using a generic one.(ÉÎö°ùÿÿÿÿ8ÙÊ¨ƒ¥1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ÃáÔ–øÿÿÿÿ8øÏ¥„¥1
+f
+java:S2583"DChange this condition so that it does not always evaluate to "false"(ˆ¹ö˜ûÿÿÿÿ8áİ¹ƒ¥1
+O
+java:S1135"2Complete the task associated to this TODO comment.(®Ş™í8ÀÒ¦ƒ¥1
+G	java:S106"+Replace this use of System.out by a logger.(ùµÊˆ8ÂÒ¦ƒ¥1
