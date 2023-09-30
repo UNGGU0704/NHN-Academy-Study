@@ -1,0 +1,880 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Mutability &amp; Immutability(23.09.26)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c5fadaf4-7f18-4ca2-96f0-b21915027579" class="page sans"><header><h1 class="page-title"><strong><strong>Mutability &amp; Immutability(23.09.26)</strong></strong></h1><p class="page-description"></p></header><div class="page-body"><p id="746a0a13-cf4a-4d69-bc95-b5f975181e0a" class="">
+</p><h3 id="5de158d0-234e-415d-860c-d809495d177a" class="">Object</h3><ul id="4ef64111-d1b4-4233-9900-92ed3daa23c4" class="bulleted-list"><li style="list-style-type:disc">가변 객체와 가변성에 대해 이핸다.</li></ul><ul id="86fe84ae-467a-4a6c-ace0-71baf82c2f44" class="bulleted-list"><li style="list-style-type:disc">allasing(별명 짓기)를 Identify 성과 가변성의 위험을 이해</li></ul><ul id="0063ed13-a314-4ce1-bfb6-3511c7286e6e" class="bulleted-list"><li style="list-style-type:disc">불변성을 사용해 정확성, 명확성,등을 개선한다.</li></ul><p id="d67c3f4b-0fe8-4e3b-8191-81530c474ba7" class="">
+</p><h2 id="9ec734e3-06da-4695-ac58-3e6c57814ff3" class=""><strong><strong>Mutability</strong></strong></h2><ul id="4d858201-5dc9-4791-90a5-36514ecf76b0" class="bulleted-list"><li style="list-style-type:disc">Java의 일부 객체는 불변성을 가지고 있다.</li></ul><ul id="8caa0f67-97ac-43a0-a315-f8718f7b5a83" class="bulleted-list"><li style="list-style-type:disc">한번 생성되면 → 같은 값을 가지고 있다. <em>[Immutability]</em></li></ul><ul id="6dcdca0e-88be-4262-bd71-0b1f63e41c9e" class="bulleted-list"><li style="list-style-type:disc">객체의 값을 변경하는 메소드가 있다. → <em>[Mutability]</em></li></ul><ul id="27ef1749-ae2e-428e-ba4e-e9232f06a135" class="bulleted-list"><li style="list-style-type:disc"><code>String</code> 은 불변 타입의 가장 큰 예시이다. 같은 객체는 항상 동일한 문자열만을 나타낸다.<pre id="fc9b85f8-4f06-46c0-903d-1684a24cb348" class="code code-wrap"><code>String s = &quot;a&quot;;
+s = s.concat(&quot;b&quot;); // s+=&quot;b&quot; and s=s+&quot;b&quot; also mean the same thing</code></pre><ul id="e0b94680-279a-4d30-a190-d74d41749a01" class="bulleted-list"><li style="list-style-type:circle">s 라는 String 객체는 언제나 “a” 만을 담고 있다.</li></ul><ul id="4b78fd5c-246d-44df-86a0-15b6b4dad8ec" class="bulleted-list"><li style="list-style-type:circle">하지만 <code>concat</code> 을 통해 이어 붙일 시에 새로운 ab라는 객체를 만들어 저장한다.</li></ul><ul id="a1bfb215-f061-4a61-b0b2-d91114618886" class="bulleted-list"><li style="list-style-type:circle">s가 가르키는 주소가 변경되는 형태 <figure id="306307df-3478-4870-9661-9aa3a4507ee5" class="image"><a href="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/reassignment.png"><img style="width:341px" src="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/reassignment.png"/></a></figure></li></ul></li></ul><ul id="eb1a824d-a0dd-48a3-8144-ad510a374a34" class="bulleted-list"><li style="list-style-type:disc"><code>StringBuilder</code> 는 가변 타입의 예시이다. 문자열을 일부 삭제, 삽입등을 방법을 가지고 있다.<pre id="f2fe0fbe-9b5f-4788-9a09-d4290314f1d1" class="code code-wrap"><code>StringBuilder sb = new StringBuilder(&quot;a&quot;);
+sb.append(&quot;b&quot;);</code></pre><ul id="182ef5f1-bcf0-4d88-b97e-3314be5a2de3" class="bulleted-list"><li style="list-style-type:circle">하지만 <code>StringBuiler</code> 는 다르다.</li></ul><ul id="597daa97-979b-48b6-a22d-c23d5cf41f94" class="bulleted-list"><li style="list-style-type:circle">하나의 sb 객체에 값을 직접 수정하는 식으로 변경한다.<figure id="1b9759bd-3b06-48fe-8270-1271e95e6c81" class="image"><a href="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/mutation.png"><img style="width:369px" src="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/mutation.png"/></a></figure></li></ul></li></ul><p id="a6891915-8539-40f6-a0cc-d8c981c773e9" class="">
+</p><pre id="669de168-2cb3-4425-a6a5-08a92fef3101" class="code code-wrap"><code>String t = s;
+t = t + &quot;c&quot;;
+
+StringBuilder tb = sb;
+tb.append(&quot;c&quot;);</code></pre><ul id="cf29d728-c2a1-4948-a57b-6ea4acc34e99" class="bulleted-list"><li style="list-style-type:disc">일반적인 <code>String</code> 에서 <code>t</code> 와 <code>s</code> 는 같은 객체를 가르킨다. 물론 <code>tb</code> 와 <code>sb</code> 또한 같은 객체를 가르킨다.</li></ul><ul id="cd1f0cc6-52d5-4000-80b0-a4da245587ab" class="bulleted-list"><li style="list-style-type:disc">하지만 값의 변경이 이루어질 때 <code>t</code> 는 새로운 객체인 <strong>abc</strong> 를 생성해서 가르키지만, <code>tb</code> 는 <code>sb</code> 와 함께 가르키는 객체를 수정해 <code>sb</code> 또한 같이 값이 변경된다.<figure id="8e04e70e-7519-4380-9351-428804022fbd" class="image"><a href="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/string-vs-stringbuilder.png"><img style="width:917px" src="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/string-vs-stringbuilder.png"/></a></figure></li></ul><ul id="2e4cb5fc-e76a-4dab-a34d-22f4cb4b4ec8" class="bulleted-list"><li style="list-style-type:disc"><code>String</code> 의 사용이 일부 코드에서 지양되는 이유<pre id="04ec65b9-6d27-46b1-ba54-1874e03f4fd2" class="code code-wrap"><code>String s = &quot;&quot;;
+for (int i = 0; i &lt; n; ++i) {
+    s = s + n;
+}
+
+
+String s = &quot;&quot;;
+for (int i = 0; i &lt; n; ++i) {
+	  StringBuilder sb = new StringBuilder();
+    for (int j = 0; j &lt; s.length; j++) { // 기존 문자열 n -1 번 반복
+				sb.append(s.charAt(j);// 기존의 s의 문자열을 하나하나 새로운 값에 넣어야함 
+		}
+		sb.append(n);
+		s = sb;
+}</code></pre><ul id="4852f2af-26a2-4e52-b8b6-7de63cf38be7" class="bulleted-list"><li style="list-style-type:circle"><code>String</code> 에 대한 많은 변경이 이루어질 때 너무나 많은 임시적 복사본이 생성된다. </li></ul><ul id="f901944f-fa76-45d1-ba5c-fee9a039065e" class="bulleted-list"><li style="list-style-type:circle">위 코드에서는 <code>n</code> 개의 <code>String</code> 객체가 생성될 위험을 가진다.</li></ul><ul id="26fe1109-ddb9-43cf-856b-9649d4b466c5" class="bulleted-list"><li style="list-style-type:circle">시간 복잡도 면에서도  O(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>)를 가진다</li></ul></li></ul><ul id="3316192a-939f-4d71-b9d5-4e003a79b087" class="bulleted-list"><li style="list-style-type:disc"><code>StringBuilder</code> 객체는 이러한 문제를 해결 할 수 있다.<pre id="5fb9d3f8-e63e-4ee6-bf00-157becef58c0" class="code code-wrap"><code>StringBuilder sb = new StringBuilder();
+for (int i = 0; i &lt; n; ++i) {
+  sb.append(String.valueOf(n));
+}
+String s = sb.toString();</code></pre><ul id="c5adfb5d-3529-45e8-916c-5b3dd8209223" class="bulleted-list"><li style="list-style-type:circle"><code>StringBuilder</code> 는 이러한 복사본을 최소화한다.</li></ul><ul id="8a3b7b5c-4d2d-46fa-9da5-ef56af8590cf" class="bulleted-list"><li style="list-style-type:circle">마지막 까지 복사본을 만들지 않고 계속해서 객체 내부의 값만 수정한다.</li></ul><ul id="58a4d935-57c8-42db-b45f-43101718877a" class="bulleted-list"><li style="list-style-type:circle">가변 객체는 객체를 공유함으로써 더 성능 좋은 통신이 가능하다.</li></ul></li></ul><h2 id="64559f95-16a6-41ef-87e3-9a977a6ba32b" class="">Risks of mutation</h2><ul id="c3792342-3073-42bf-881a-8a8fcfd0beb3" class="bulleted-list"><li style="list-style-type:disc">가변 타입을 불변 타입보다 강력하게 보인다.</li></ul><ul id="37be0060-9fd9-42e7-95f0-f2f6b88be3b8" class="bulleted-list"><li style="list-style-type:disc">그러면 왜 불변 타입을 사용하는걸까…?</li></ul><ul id="6c5e308c-59b7-41ba-9847-669aa51dbaa7" class="bulleted-list"><li style="list-style-type:disc">불변 타입은 버그로부터 안전하고, 이해하기 쉬우며, 변화에 준비됬다.</li></ul><ul id="2a6434b9-7593-499a-a7fd-6b12753376f6" class="bulleted-list"><li style="list-style-type:disc">가변성은 코드를 이해하기 어렵게 만든다 두가지 예시</li></ul><h3 id="10e41b55-655c-4acd-9dc3-fe61f3f66872" class=""><strong><strong>Risky example #1: passing mutable values</strong></strong></h3><pre id="cc19ed17-dbe2-42ce-9007-7490daf5b2e5" class="code code-wrap"><code>/** @return the sum of the numbers in the list */
+public static int sum(List&lt;Integer&gt; list) {
+    int sum = 0;
+    for (int x : list)
+        sum += x;
+    return sum;
+}</code></pre><ul id="25391a08-0261-472a-949c-729ae929b51e" class="bulleted-list"><li style="list-style-type:disc">단순히 리스트의 값을 모두 더하는 코드</li></ul><ul id="cd071589-c8b2-428e-a1ea-bf7a1452daa5" class="bulleted-list"><li style="list-style-type:disc">만약 절대 값도 처리하고 싶다면 다음과 같이 코드를 변경한다.</li></ul><pre id="4029fab7-c5eb-4660-af65-5a2911366c6f" class="code code-wrap"><code>/** @return the sum of the absolute values of the numbers in the list */
+public static int sumAbsolute(List&lt;Integer&gt; list) {
+    // let&#x27;s reuse sum(), because DRY, so first we take absolute values
+    for (int i = 0; i &lt; list.size(); ++i)
+        list.set(i, Math.abs(list.get(i)));
+    return sum(list);
+}</code></pre><ul id="87b6cece-8a87-4cd5-86ea-a374ba4f4e63" class="bulleted-list"><li style="list-style-type:disc">이 코드는 list를 직접 변경하여 사용한다.</li></ul><ul id="e42dab73-9f7a-4c52-8dd1-a8dc9caf3482" class="bulleted-list"><li style="list-style-type:disc">얼핏 보면 효율적인 코드로 보인다. (DRY 우수)</li></ul><ul id="bacca622-9322-4706-9273-2a9ca62d6e27" class="bulleted-list"><li style="list-style-type:disc">하지만 이 코드는 잠재적인 버그를 가지고 있다. → 가변객체를 통과시키는것 , 추후에 디버깅 난이도 상승</li></ul><pre id="e9dcd66d-b94f-49ce-a1f3-412b47033691" class="code"><code>/** @return the sum of the absolute values of the numbers in the new list */
+public static int sumAbsolute(List&lt;Integer&gt; list) {
+    List&lt;Integer&gt; absoluteValues = new ArrayList&lt;&gt;();
+    for (int num : list) {
+        absoluteValues.add(Math.abs(num));
+    }
+    return sum(absoluteValues);
+}</code></pre><ul id="011cbc58-5c64-45dd-b6ed-8795e8da4d35" class="bulleted-list"><li style="list-style-type:disc">가변 객체를 넘기는것보단 새로운 리스트를 생성해서 넘기는 것이 조금더 안전하다.</li></ul><h3 id="49ec45fc-5b82-431c-9e2d-fcb6c70ddfd2" class=""><strong><strong>Risky example #2: returning mutable values</strong></strong></h3><ul id="96e5fec0-0084-40e0-81df-1cd15a6381cf" class="bulleted-list"><li style="list-style-type:disc">우리가 가변 객체를 함수에 전달하면 생기는 문제를 보았다. 가변 객체를 return 하는 것은?</li></ul><ul id="3c256562-c2d5-4772-a179-58fc3c619f51" class="bulleted-list"><li style="list-style-type:disc"><code>Date</code> 를 고려해보자. 이건 가변 타입이다. 우리가 만약 첫번 째 날이 봄날인지 가정하는 코드를 쓴다면?</li></ul><pre id="13296926-f0ba-4511-84ef-3d85bce63fb5" class="code code-wrap"><code>/** @return the first day of spring this year */
+public static Date startOfSpring() {
+    return askGroundhog();
+}</code></pre><ul id="04e39670-8866-4f38-8c55-6eba171e5cf5" class="bulleted-list"><li style="list-style-type:disc">Groundhog 알고리즘을 사용하여 봄의 시작을 계산하는 코드 </li></ul><pre id="2ea6361f-db0d-4ecd-8ff2-711cb034bfea" class="code code-wrap"><code>// somewhere else in the code...
+public static void partyPlanning() {
+    Date partyDate = startOfSpring();
+    // ...
+}</code></pre><ul id="9ea759b7-29ce-4d51-8938-0c27c697910b" class="bulleted-list"><li style="list-style-type:disc">전체적인 코드는 작동하지만 두가지 문제가 발생했다.<ul id="d5b18575-0dbd-4b83-8128-2e6c9cf8ede1" class="bulleted-list"><li style="list-style-type:circle">매번 코드에 대한 질문을 대답해야 하기에 추후에 대답을 위해서 코드를 수정한다.<pre id="5d73d911-6729-4f07-ac7d-dc49cb5bd3be" class="code code-wrap"><code>/** @return the first day of spring this year */
+public static Date startOfSpring() {
+    if (groundhogAnswer == null) groundhogAnswer = askGroundhog();
+    return groundhogAnswer;
+}
+private static Date groundhogAnswer = null;</code></pre></li></ul><ul id="70103a19-12a2-4e6a-a90c-9bfe14b37bd7" class="bulleted-list"><li style="list-style-type:circle">또한 봄의 날씨가 너무 춥가도 하기에 봄의 시작일에서 한달 뒤로 코드를 수정해야한다.<pre id="0c3a4167-1da4-4ca7-a872-26240089f2f6" class="code code-wrap"><code>// somewhere else in the code...
+public static void partyPlanning() {
+    // let&#x27;s have a party one month after spring starts!
+    Date partyDate = startOfSpring();
+    partyDate.setMonth(partyDate.getMonth() + 1);
+    // ... uh-oh. what just happened?
+}</code></pre></li></ul><ul id="7b291ba1-3d71-4936-8e73-c6ed3a159b70" class="bulleted-list"><li style="list-style-type:circle">partyDate의 <code>Month</code> 를 1 올렸지만, groundHogAnswer도 1 오르는 문제가 발생한다.</li></ul><ul id="743dc055-1d87-46d4-8acc-482353aa53d8" class="bulleted-list"><li style="list-style-type:circle">또한 11(12월)의 경우 잘못된 값을 내보낼 수 있다</li></ul></li></ul><ul id="a5fc7b41-c6b2-4d29-87ed-02274276bb0f" class="bulleted-list"><li style="list-style-type:disc">결과적으로 이 코드는…<ul id="d838439e-4934-417e-9def-3d649b9e4ae0" class="bulleted-list"><li style="list-style-type:circle">잠재적 버그를 가지고 있다.</li></ul><ul id="bad3f0a3-8f01-483d-8d18-a657b90f5ddc" class="bulleted-list"><li style="list-style-type:circle">변화를 위한 준비는 좋지만 이것이 버그를 도입하지 않고 바꾸는것이 중요하다…</li></ul></li></ul><p id="e501af72-b4c0-49a8-bba4-54f16b441bcb" class="">
+</p><ul id="103e03bb-e441-4a4a-b760-0bf4cf226c2b" class="bulleted-list"><li style="list-style-type:disc">각 두 예제에서 <code>List&lt;Integer&gt;</code> 와 <code>Date</code> 를 불변 유형이였다면 이러한 문제를 피할 수 있을것이다.</li></ul><ul id="5cd98160-1ac5-4b17-9dbb-a00e80ce7b01" class="bulleted-list"><li style="list-style-type:disc">물론 <code>Java.time</code> , <code>LocalDateTime</code> 같은 불변 타입을 사용한다면 버그를 피할 수 있다.</li></ul><ul id="9239ca5f-ec72-408f-8899-50caa18c1e03" class="bulleted-list"><li style="list-style-type:disc">이런 예제는 왜 가변 타입이 나쁜 성능을 보이는지 알려줍니다. </li></ul><ul id="9a866aa6-f3ec-4679-a7de-b6468ee2de2e" class="bulleted-list"><li style="list-style-type:disc">이런 버그를 피하는 간단한 방법은 명세나 메소드 시그니처의 변경을 피하는 것이다<ul id="f340194e-7995-46dd-8000-e7b889b638c7" class="bulleted-list"><li style="list-style-type:circle"><code>startOfSpring()</code> 에서 항상 복사본을 return 한다.</li></ul><ul id="be2ae907-5802-437c-90e4-f06e5c68d9e5" class="bulleted-list"><li style="list-style-type:circle"><code> return new Date(groundhogAnswer.getTime());</code></li></ul></li></ul><ul id="91eddde7-1091-4879-a8ef-9688f627ba8a" class="bulleted-list"><li style="list-style-type:disc">이러한 패턴을 <strong>defensive copying</strong> 이라고 한다.</li></ul><ul id="982af2f0-14fe-44b0-ae68-fe5a291784e0" class="bulleted-list"><li style="list-style-type:disc">이는 추상적인 데이터 타입이며 기존의 값에 영향을 주지 않고 자유롷게 사용이 가능하다.</li></ul><ul id="979fc290-9d66-492d-8215-a491cf479382" class="bulleted-list"><li style="list-style-type:disc">그러나 이러한 방어적 복사는 이용자가 추가적인 공간과 작업이 요구 된다. 즉 99%의 사용자가 날짜를 변경하지 않더라도 이런 오버헤드는 발생한다.</li></ul><ul id="5aa5d9f5-aa74-4009-b4ff-49ba9169809d" class="bulleted-list"><li style="list-style-type:disc">불변성은 이런 오버헤드가 없다. 즉 이런 상황에서는 불변성이 더욱 이득이 되는 상황</li></ul><p id="7b859d89-cc74-41fd-97bb-86d62d2ec061" class="">
+</p><h2 id="b56e4c5f-8569-4ff8-9bef-ce01c64fd789" class=""><strong><strong>Aliasing is what makes mutable types risky</strong></strong></h2><ul id="e0d23030-0807-491a-b328-2becc4a9581a" class="bulleted-list"><li style="list-style-type:disc">일반적으로 가변 객체를 지역적으로 사용하는 것은 괜찮다.</li></ul><ul id="3815f9c7-3a0b-42fb-ac71-72fbdbfc6c5b" class="bulleted-list"><li style="list-style-type:disc">하지만 다양한 객체에 <strong>aliases</strong> 라고 불리는 여러개의 참조를 가지는것에 문제가 있다.<ul id="1a01d1e4-1bf7-426b-86c5-2a82bd16f94c" class="bulleted-list"><li style="list-style-type:circle"><code>List</code> 객체를 사용하는 <code>sum</code> , <code>sumAbsolute</code> 이건 다양한 사람이 협업하는 과정에서 문제가 발생</li></ul><ul id="a8295009-429b-44af-842f-6a77526c41b5" class="bulleted-list"><li style="list-style-type:circle"><code>Date</code> 같은 경우 <code>groundhogAnswer</code> 와 <code>partyDate</code> 를 가리키는데 이 또한 각자 같은 객체를 참조하지만 다른 곳에 위치 되어 있어 코드를 읽기 어렵게 한다.</li></ul></li></ul><ul id="b1dedecd-2a96-4d32-ad04-c3bbb5016400" class="bulleted-list"><li style="list-style-type:disc">스냅샷 다이어그램을 통해 이러한 문제를 쉽게 머리에 이해할 수 있다.</li></ul><p id="16379cd0-e6d8-4e56-9102-e213c02bc588" class="">
+</p><h2 id="9fe95d6a-6d25-48f2-88e2-882e67c1c658" class=""><strong><strong>Specifications for mutating methods</strong></strong></h2><ul id="4a702e15-09c0-45f9-b5d5-a1df606f4331" class="bulleted-list"><li style="list-style-type:disc">가변성 있는 메소드의 수행에 대해 명세에 포함하는 것은 중요합니다.</li></ul><ul id="e82c7299-4257-4e45-82ea-79884e54adc3" class="bulleted-list"><li style="list-style-type:disc">우리는 앞서 가변성이 버그의 원인이 됨을 확인하였다.</li></ul><pre id="725ce644-8ef5-4c35-8905-8eaf7ccbb853" class="code code-wrap"><code>static void sort(List&lt;String&gt; lst)
+requires: nothing
+effects:  puts lst in sorted order, i.e. lst[i] &lt;= lst[j]
+              for all 0 &lt;= i &lt; j &lt; lst.size()</code></pre><ul id="b53c4972-86cf-4000-94ec-98ee9ae8c034" class="bulleted-list"><li style="list-style-type:disc">가변성을 제거한 명세 </li></ul><pre id="61596478-00bd-4648-9549-eb5bd995dd94" class="code code-wrap"><code>static List&lt;String&gt; toLowerCase(List&lt;String&gt; lst)
+requires: nothing
+effects:  returns a new list t where t[i] = lst[i].toLowerCase()</code></pre><ul id="a3ef3e1d-642f-44ce-960e-98c1586eb317" class="bulleted-list"><li style="list-style-type:disc">추후 암묵적으로 불변이라고 이후 허용한다. </li></ul><ul id="b1df9c27-bf9d-466e-b519-77d37dc3f84a" class="bulleted-list"><li style="list-style-type:disc">변이는 결국 끔찍한 버그로 이어지는 것을 언제나 명심할것</li></ul><p id="7a237adf-d443-4e48-ba05-e76f7dfd4148" class="">
+</p><h2 id="2d48889b-a4d5-4cd2-8efe-eebd955bb70c" class=""><strong><strong>Iterating over arrays and lists</strong></strong></h2><ul id="14bd7983-2a64-460d-92a9-66ef5d2e0551" class="bulleted-list"><li style="list-style-type:disc">가변 객체중에 <strong>Iterator</strong> 를 확인해보자.</li></ul><ul id="54004c38-839d-4f83-9727-46e34f2767b8" class="bulleted-list"><li style="list-style-type:disc">Collections의 요소들을 순차적으로 확인하는 객체로써 자바에서는 List의 loop에서 주로 사용된다.</li></ul><pre id="f80b16ff-e76f-40e5-9b3e-5745c87ef75e" class="code code-wrap"><code>List&lt;String&gt; lst = ...;
+for (String str : lst) {
+    System.out.println(str);
+}</code></pre><ul id="a494d9d7-4039-4869-bf41-4cb9e7c0ec77" class="bulleted-list"><li style="list-style-type:disc">이걸 컴파일러는 이렇게 해석한다…</li></ul><pre id="6df506d8-f0e8-45dc-9c32-e8cb8a00e218" class="code code-wrap"><code>List&lt;String&gt; lst = ...;
+Iterator iter = lst.iterator();while (iter.hasNext()) {String str = iter.next();
+    System.out.println(str);
+}</code></pre><ul id="8aacc19a-a011-489f-bce8-007750ba8574" class="bulleted-list"><li style="list-style-type:disc">iterator가 가지고 있는 두가지 메소드 <ul id="2a5f3238-9ead-4b72-9d20-c27a2fb41836" class="bulleted-list"><li style="list-style-type:circle"><code>next()</code> returns the next element in the collection</li></ul><ul id="bc9c7a4a-7b86-4bf0-97a9-454e58d596b6" class="bulleted-list"><li style="list-style-type:circle"><code>hasNext()</code> tests whether the iterator has reached the end of the collection.</li></ul></li></ul><ul id="1e291fa3-a7e0-4942-9804-1b1605d02e5b" class="bulleted-list"><li style="list-style-type:disc">주목할 것은 <code>next()</code> 는 가변 메소드로써 단순히 요소를 리턴할 뿐만 아니라 다음 값을 찾는다</li></ul><p id="00d11fca-34f4-4f6f-b4d2-d2a2f8d6bb8c" class="">
+</p><h3 id="fa4a6121-eccb-4f1c-b61b-d830c7bd3bd1" class="">MyIterator</h3><ul id="deb27144-4d85-4e49-ba11-e19c8f5fe520" class="bulleted-list"><li style="list-style-type:disc">MyIterator의 구현<pre id="ec3af99a-fd0a-4467-be05-bc132431e122" class="code code-wrap"><code>/**
+ * A MyIterator is a mutable object that iterates over
+ * the elements of an ArrayList&lt;String&gt;, from first to last.
+ * This is just an example to show how an iterator works.
+ * In practice, you should use the ArrayList&#x27;s own iterator
+ * object, returned by its iterator() method.
+ */
+public class MyIterator {
+
+    private final ArrayList&lt;String&gt; list;
+    private int index;
+    // list[index] is the next element that will be returned
+    //   by next()
+    // index == list.size() means no more elements to return
+
+    /**
+     * Make an iterator.
+     * @param list list to iterate over
+     */
+    public MyIterator(ArrayList&lt;String&gt; list) {
+        this.list = list;
+        this.index = 0;
+    }
+
+    /**
+     * Test whether the iterator has more elements to return.
+     * @return true if next() will return another element,
+     *         false if all elements have been returned
+     */
+    public boolean hasNext() {
+        return index &lt; list.size();
+    }
+
+    /**
+     * Get the next element of the list.
+     * Requires: hasNext() returns true.
+     * Modifies: this iterator to advance it to the element
+     *           following the returned element.
+     * @return next element of the list
+     */
+    public String next() {
+        final String element = list.get(index);
+        ++index;
+        return element;
+    }
+}</code></pre></li></ul><ul id="d589246a-f8be-4ac5-bcc3-79be5b6b81e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Instance varibles</strong> : 자바에서 필드라고 불리는 인스턴스 변수로써 매개변수와 로컬 변수와는 차이가 있다. 객체의 인스턴스에 저장되고 일반적인 로컬 변수보다는 더 오래 가는것을 명심</li></ul><ul id="d63f4d5d-0b9d-40f4-901e-8a58a1438a9d" class="bulleted-list"><li style="list-style-type:disc"><strong>Constructor</strong> : 객체를 생성</li></ul><ul id="17912cce-016b-4d57-9e5e-bf1ec3ded345" class="bulleted-list"><li style="list-style-type:disc"><strong>this</strong> : 인스턴스 변수를 참조하는데 사용</li></ul><ul id="a879270d-fda6-4080-a27c-c78caa4bbc27" class="bulleted-list"><li style="list-style-type:disc">etc…</li></ul><ul id="d8a224dc-24c5-4ddb-9d2a-75c0782fd2c7" class="bulleted-list"><li style="list-style-type:disc"><code>list</code> 는 <code>final</code> 로 선언되어져 있다. <ul id="6fe8a686-cb6c-4056-b470-8a39b1396f85" class="bulleted-list"><li style="list-style-type:circle">이는 불변 객체로 선언되어 관리됨을 알 수 있다…</li></ul><ul id="37ce7aa5-3b41-44ca-b613-ccb975a6db17" class="bulleted-list"><li style="list-style-type:circle">이런 일반적인 반복자의 개념은 다양한 언어에서 사용된다. (디자인 패턴)</li></ul></li></ul><h2 id="f0cf8d6c-594a-4021-a6b7-da8f436e3933" class=""><strong><strong>Mutation undermines an iterator</strong></strong></h2><ul id="048bdbf1-33d1-4c3d-9691-551eec2028ab" class="bulleted-list"><li style="list-style-type:disc">아래 코드는 iterator를 사용하는 예 이다.<pre id="72c1538a-6537-45a5-b9bd-c35dedfad771" class="code code-wrap"><code>/**
+ * Drop all subjects that are from Course 6.
+ * Modifies subjects list by removing subjects that start with &quot;6.&quot;
+ *
+ * @param subjects list of MIT subject numbers
+ */
+public static void dropCourse6(ArrayList&lt;String&gt; subjects)</code></pre></li></ul><ul id="f89c6ae4-1920-4a80-b197-d681045b9372" class="bulleted-list"><li style="list-style-type:disc"><code>dropCourse6</code> 은 클라이언트에게 인수가 변경될 것을 경고한다.</li></ul><ul id="4363d77a-2119-4b0d-99d6-a4283243ee33" class="bulleted-list"><li style="list-style-type:disc">테스트를 위해서 입력을 분할한다.<pre id="0887a437-81eb-491c-b9db-07b1eee49298" class="code code-wrap"><code>// Testing strategy:
+//   subjects.size: 0, 1, n
+//   contents: no 6.xx, one 6.xx, all 6.xx
+//   position: 6.xx at start, 6.xx in middle, 6.xx at end
+
+// Test cases:
+//   [] =&gt; []
+//   [&quot;8.03&quot;] =&gt; [&quot;8.03&quot;]
+//   [&quot;14.03&quot;, &quot;9.00&quot;, &quot;21L.005&quot;] =&gt; [&quot;14.03&quot;, &quot;9.00&quot;, &quot;21L.005&quot;]
+//   [&quot;2.001&quot;, &quot;6.01&quot;, &quot;18.03&quot;] =&gt; [&quot;2.001&quot;, &quot;18.03&quot;]
+//   [&quot;6.045&quot;, &quot;6.005&quot;, &quot;6.813&quot;] =&gt; []</code></pre><pre id="70340495-6051-43f6-ae9a-2069109c98b2" class="code code-wrap"><code>public static void dropCourse6(ArrayList&lt;String&gt; subjects) {
+    MyIterator iter = new MyIterator(subjects);
+    while (iter.hasNext()) {
+        String subject = iter.next();
+        if (subject.startsWith(&quot;6.&quot;)) {
+            subjects.remove(subject);
+        }
+    }
+}</code></pre></li></ul><ul id="69b9d864-f084-46e9-bf8d-13f95e28bba8" class="bulleted-list"><li style="list-style-type:disc">테스트 결과 <pre id="7d60cc36-b333-47e6-916a-8d5af966a670" class="code code-wrap"><code>// dropCourse6([&quot;6.045&quot;, &quot;6.005&quot;, &quot;6.813&quot;])
+//   expected [], actual [&quot;6.005&quot;]</code></pre><ul id="c3ae2ba9-4108-4062-8948-070bed2c51e4" class="bulleted-list"><li style="list-style-type:circle">마지막은 실패했다.</li></ul></li></ul><ul id="6c9168d1-5ca9-494d-906c-e348f34fba84" class="bulleted-list"><li style="list-style-type:disc">왜 틀린 답이 나왔는지는 스냅샷 다이어그램을 활용한다면 편하다.</li></ul><p id="5a8edde6-5558-4d8d-9c7b-9e3d153a91af" class="">
+</p><ul id="6998dadb-6c38-45f4-98d4-019b0b014748" class="bulleted-list"><li style="list-style-type:disc">이건 모든 <code>Iterator</code> 를 사용하는 모든 곳에서 나타나는 문제입니다.</li></ul><pre id="f3862514-e544-43f5-ae6b-68d0fac5f3cf" class="code code-wrap"><code>for (String subject : subjects) {
+    if (subject.startsWith(&quot;6.&quot;)) {
+        subjects.remove(subject);
+    }
+}</code></pre><ul id="43e2e459-fc3a-4728-9f9e-a2e0a1cdb005" class="bulleted-list"><li style="list-style-type:disc">이건 결과적으로 <a href="http://docs.oracle.com/javase/8/docs/api/?java/util/ConcurrentModificationException.html"><code>Concurrent­Modification­Exception</code></a>를 유발한다.</li></ul><ul id="73b28a19-7224-4e68-a728-3be3338917ff" class="bulleted-list"><li style="list-style-type:disc">이 문제를 해결할려면…<pre id="9b5164ff-38e1-4ee8-bac6-b8cad4f9b4cc" class="code code-wrap"><code>Iterator iter = subjects.iterator();
+while (iter.hasNext()) {
+    String subject = iter.next();
+    if (subject.startsWith(&quot;6.&quot;)) {
+			iter.remove(subject);
+    }
+}</code></pre><ul id="3f8907f8-1143-447c-81bf-05fddef77810" class="bulleted-list"><li style="list-style-type:circle"><code>iter.remove()</code> 로 변경한다.</li></ul><ul id="b480a174-92ad-414e-9e8a-05c3141336c1" class="bulleted-list"><li style="list-style-type:circle">기존의 <code>subjects.remove()</code> 는 리스트에서 해당 요소를 다시 찾아서 제거 한다. (예외발생)</li></ul><ul id="741c131b-3354-48aa-aa63-0c034d9d9df1" class="bulleted-list"><li style="list-style-type:circle"><code>iter.remove()</code> 는 현재 순회 중에 요소를 삭제 할 수 있는 유일한 방법…</li></ul></li></ul><ul id="6c350ab7-f6fa-4ca3-84f9-4125e9fe97bd" class="bulleted-list"><li style="list-style-type:disc">이렇게 해서 전체 문제를 해결했다고는 볼 수 없다.<ul id="ab26875f-55fe-49e0-9631-b1af7bf2f218" class="bulleted-list"><li style="list-style-type:circle">만약 같은 Iterator를 다른 프로그램이 실행중이라면..?’</li></ul></li></ul><ul id="178fb73e-19f4-4b58-86c5-35a1b726e3eb" class="bulleted-list"><li style="list-style-type:disc">이 문제에 대한 스냅샷 다이어그램<figure id="dd1319b8-3578-418a-966c-fd667596377c" class="image"><a href="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-09-26_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.04.33.png"><img style="width:657px" src="Mutability%20&amp;%20Immutability(23%2009%2026)%20c5fadaf47f184ca296f0b21915027579/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-09-26_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.04.33.png"/></a></figure></li></ul><h2 id="be6aff91-52bb-4d7a-bb31-0e51750eef43" class=""><strong><strong>Mutation and contracts</strong></strong></h2><h3 id="bcf6f52d-978d-4763-86aa-2169a64d9fbe" class=""><strong><strong>Mutable objects can make simple contracts very complex</strong></strong></h3><ul id="a42b38b0-a402-4d4c-b2ab-cbc3144c7902" class="bulleted-list"><li style="list-style-type:disc">가변 데이터 구조체에 대한 기능적 이슈입니다.</li></ul><ul id="93ece489-5df5-4df9-a796-afdc9bf1adfc" class="bulleted-list"><li style="list-style-type:disc">같은 가변 객체에 대한 다양한 참조(<strong>aliasese</strong> 라고도 불림) </li></ul><ul id="b0aaf3fa-e38a-4933-9f71-b1ae7f910fe5" class="bulleted-list"><li style="list-style-type:disc">다양한 위치에 있는 참조가 한 객체를 의존하고 있는 상태 </li></ul><ul id="bf5069f3-c4bb-4c23-8d0c-9ef860333b9e" class="bulleted-list"><li style="list-style-type:disc">이러한 경우 다양한 곳에 위치한 참조자 들끼리 서로 가변 객체를 좋은 방식으로 다루기를 기도하는 방법뿐…</li></ul><ul id="7c76f655-ad47-4b9c-9add-f6439ab526dd" class="bulleted-list"><li style="list-style-type:disc">이러한 방식의 대표적은 Java의 <code>Collections</code> <ul id="46eb8a70-0030-444f-9f30-236f07260b37" class="bulleted-list"><li style="list-style-type:circle"><code>Collections</code> 은 이러한 방식에 대해서 어떻게 기록하고 있는가?</li></ul><ul id="414b35e5-4ca4-455c-84c9-665d34c839b3" class="bulleted-list"><li style="list-style-type:circle">수정 (<code>List</code> 를 추가하거나 삭제)할때 어떤 식으로 책임은 <code>Collections</code> , <code>List</code> , <code>Iterator</code>  중에 누가 책임지나?</li></ul></li></ul><ul id="eaa88e40-19d4-4f7e-b785-93346ebecb65" class="bulleted-list"><li style="list-style-type:disc">Solution<ul id="6cca4378-cdb1-40f2-9b0c-491f0771947f" class="bulleted-list"><li style="list-style-type:circle"><strong>synchronizing </strong>사용 →<em> Concurrency </em>보장 <p id="cb668260-876e-4d4a-9af4-a44adf28c22b" class=""><code> List list = Collections.synchronizedList(new ArrayList(...));</code></p></li></ul><ul id="8a680bb3-afad-43ff-a8ec-5beffb7c7593" class="bulleted-list"><li style="list-style-type:circle"><em>Stram()</em> ,  <em>parallelStream() </em>활용<pre id="0646e6b9-5288-42ff-9af4-43b1bdf83d4b" class="code"><code>List&lt;String&gt; list = Arrays.asList(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;);
+list.parallelStream().forEach(element -&gt; {
+// 동시성으로 요소 처리
+});</code></pre></li></ul></li></ul><ul id="58905de7-3410-499a-9734-f41bf041755e" class="bulleted-list"><li style="list-style-type:disc">이와 같이 가변 속성은 추론에 대한 비용이 들어가기 때문에, 프로그램과 데이터 구조에 대한 이해가 더 어렵다.</li></ul><ul id="6b9faa49-6a10-460a-88d5-668a5d729d44" class="bulleted-list"><li style="list-style-type:disc">가변성은 편의성과 성능에 큰 이점을 주기에 버그 안정성과 비교해서 잘 비교해 사용하자.</li></ul><h3 id="039900d4-0424-418c-823d-f65da00d804f" class=""><strong><strong>Mutable objects reduce changeability</strong></strong></h3><ul id="b1980bd1-4e6f-4675-8ac7-e69a3ecde31f" class="bulleted-list"><li style="list-style-type:disc">가변 객체는 구현자와 사용자 사이에서 높은 복잡한 제약을 요구하고 변경에 대한 높은 비용을 요구합니다.</li></ul><ul id="c74b4009-6d6d-479f-8c7f-44961dd16b5a" class="bulleted-list"><li style="list-style-type:disc">즉 <em>Object </em>를 사용한다는 것은 코드의 변경을 힘들게 하는 것이라고도 말할 수 있다.</li></ul><ul id="2e86dcfb-454d-4411-b56f-117e1392890d" class="bulleted-list"><li style="list-style-type:disc">Example (MIT에서 사용자의 이름을 검색하고 9자리 식별번호를 반환)<pre id="1548018a-c3a8-4c0c-9f3a-7f2e68a5ad66" class="code code-wrap"><code>/**
+ * @param username username of person to look up
+ * @return the 9-digit MIT identifier for username.
+ * @throws NoSuchUserException if nobody with username is in MIT&#x27;s database
+ */
+public static char[] getMitId(String username) throws NoSuchUserException {
+    // ... look up username in MIT&#x27;s database and return the 9-digit ID
+}</code></pre><ul id="081e6b37-d759-44fe-9b69-b052b47e9127" class="bulleted-list"><li style="list-style-type:circle">해당 명세에 따라 클라이언트가 이렇게 요청한다.</li></ul><pre id="38f5cd25-858f-4da8-9e15-c467697f8d44" class="code code-wrap"><code>char[] id = getMitId(&quot;bitdiddle&quot;);
+System.out.println(id);</code></pre><ul id="8170fadc-f257-4b01-8ea5-6b1319b8275e" class="bulleted-list"><li style="list-style-type:circle">이 상태에서 유저의 개인정보 보호를 위해 구현자와 사용자는 id 앞 5글자에 <strong>*</strong>로 가리기로 한다.</li></ul><pre id="5d702fe8-1ef0-4746-b36f-e7a6183a00d6" class="code code-wrap"><code>char[] id = getMitId(&quot;bitdiddle&quot;);
+for (int i = 0; i &lt; 5; ++i) {
+    id[i] = &#x27;*&#x27;;
+}
+System.out.println(id);</code></pre><ul id="4f13b3bc-602c-4f79-81ba-8f6532114694" class="bulleted-list"><li style="list-style-type:circle">구현자는 캐쉬를 사용한다.</li></ul><pre id="e733ca41-0721-4c74-9cd6-4a31c185b9ae" class="code code-wrap"><code>private static Map&lt;String, char[]&gt; cache = new HashMap&lt;String, char[]&gt;();
+
+public static char[] getMitId(String username) throws NoSuchUserException {
+    // see if it&#x27;s in the cache already
+    if (cache.containsKey(username)) {
+        return cache.get(username);
+    }
+
+    // ... look up username in MIT&#x27;s database ...
+
+    // store it in the cache for future lookups
+    cache.put(username, id);
+    return id;
+}</code></pre><ul id="e1153065-8c23-455b-ba26-1e751ad0abde" class="bulleted-list"><li style="list-style-type:circle">이러한 방식에 대해서 발생하는 문제가 있다.</li></ul><ul id="2c8a349d-5e2d-4f50-bf13-739ef9bedd2b" class="bulleted-list"><li style="list-style-type:circle"><code>id</code> 는 가변 객체(aliased)에 * 를 추가한다면 cache의 배열까지 수정한다. </li></ul><ul id="69ad0ab4-f82e-484c-943f-65d2e3380508" class="bulleted-list"><li style="list-style-type:circle">가변 객체를 공유 하는 것은 또다시 누구의 책임이 있는지 애매해진다.<ol type="1" id="636376f6-be6f-44f7-a6b9-504cdf512d72" class="numbered-list" start="1"><li>구현자는 return 값을 고정해야만 하는가?</li></ol><ol type="1" id="f515c615-f9da-46cb-8082-7b769b1566b7" class="numbered-list" start="2"><li>사용자는 return 값을 수정하면 안되는가?</li></ol></li></ul></li></ul><ul id="75c96e98-7974-4f73-9736-e68a3aa24dad" class="bulleted-list"><li style="list-style-type:disc">새로 적은 명세<pre id="f8b42c53-e5b6-47e9-9fba-a7e378184bad" class="code"><code>public static char[] getMitId(String username) throws NoSuchUserException 
+  requires: nothing
+  effects: returns an array containing the 9-digit MIT identifier of username,
+             or throws NoSuchUserException if nobody with username is in MIT’s
+             database. Caller may never modify the returned array.</code></pre><ul id="ecd9c6bb-f0c5-4fcc-beab-e62541d1d0eb" class="bulleted-list"><li style="list-style-type:circle">여전히 문제가 존재한다. </li></ul><ul id="235eed2b-1a00-49b2-9bb0-36482ac021d7" class="bulleted-list"><li style="list-style-type:circle">이 코드의 문제는 이러한 제약이 프로그램 전체에 미친다는 것이다.<ul id="56781188-e312-430f-9d2f-c36853749953" class="bulleted-list"><li style="list-style-type:square">array를 절대 수정하지 말것</li></ul></li></ul><ul id="145c4c09-4881-4d11-af2a-ff6a08a8d624" class="bulleted-list"><li style="list-style-type:circle">기존의 <strong>precondition</strong>과 <strong>postcondition</strong>들은 메소드의 주변만 생각했지 다른 곳에서까지 생각할 필요가 없었다는 것을 떠올리면 매우 큰 제약.</li></ul></li></ul><ul id="6bb2dc13-9b95-4e95-abae-fd1121b159ec" class="bulleted-list"><li style="list-style-type:disc">비슷한 문제를 가진 예제<pre id="a8d19fb7-a589-4b43-9672-f496c032df23" class="code"><code>public static char[] getMitId(String username) throws NoSuchUserException 
+  requires: nothing
+  effects: returns a new array containing the 9-digit MIT identifier of username,
+             or throws NoSuchUserException if nobody with username is in MIT’s
+             database.</code></pre><ul id="f3373f6f-113a-4120-89c6-7b31afba31a5" class="bulleted-list"><li style="list-style-type:circle">새로운 배열을 return 한다고 해서 완전한 문제를 해결할 수 있는것은 아니다.</li></ul><ul id="3fb16a2b-5f9a-4902-b71c-adf5a68602ee" class="bulleted-list"><li style="list-style-type:circle">여전히 구현자는 새로운 array를 alias 하지 않는다고 보장하지 못한다.</li></ul></li></ul><ul id="243c97e3-0711-4f04-ac2e-c546ba7150e1" class="bulleted-list"><li style="list-style-type:disc">더 나은 예제<pre id="58ff7fc1-e592-4df3-ba4e-a52a372aab56" class="code"><code>public static String getMitId(String username) throws NoSuchUserException 
+  requires: nothing
+  effects: returns the 9-digit MIT identifier of username, or throws
+             NoSuchUserException if nobody with username is in MIT’s database.</code></pre><ul id="690a4590-ad32-42c6-b9f3-e95e96a21433" class="bulleted-list"><li style="list-style-type:circle"><code>String</code> 을 return 함으로써 불변성을 보장한다.</li></ul><ul id="c072979f-720d-4712-9bad-edc4c47b4e38" class="bulleted-list"><li style="list-style-type:circle">또한 불변성이 보장 받았기에 cache를 자유롭게 사용할 수 있다.  → 성능 향상</li></ul></li></ul><p id="dd94e5f0-84c5-426a-b853-317510983c05" class="">
+</p><h2 id="3352200f-5aad-444a-8014-c99683d37f1d" class=""><strong><strong>Useful immutable types</strong></strong></h2><ul id="0cca31ca-9725-437e-8f44-0a814ff8c97e" class="bulleted-list"><li style="list-style-type:disc">일반적으로 immutable은 Java API에서 문제를 회피 할 수 있다.<ul id="d5a8822d-e6d4-486e-ad0d-35bfc8527e8d" class="bulleted-list"><li style="list-style-type:circle">primitive type, primitive는 immutable 입니다. </li></ul><ul id="a472e972-bcff-4e31-a6f2-524c229e3a02" class="bulleted-list"><li style="list-style-type:circle"><code>BigInteger</code> , <code>BigDecimal</code> 또한 immutable 입니다.</li></ul><ul id="3fd63790-17aa-49b6-af02-c5ede86f26b7" class="bulleted-list"><li style="list-style-type:circle">mutable한 <code>Date</code> 의 사용을 지양하세요. 시간을 기록할 때 에는 <code>java.time</code> 을 사용하세요.</li></ul><ul id="5ddb0a13-22ee-4aaf-a01e-131252db03c2" class="bulleted-list"><li style="list-style-type:circle">자바 Collections의 구현에 있어서 모두 mutable 입니다. immutable 하게 할려면 아래를 활용하세요<ul id="8ef8712d-3b48-425b-b8eb-9750a3df1d86" class="bulleted-list"><li style="list-style-type:square"><code>Collections.unmodifiableList</code></li></ul><ul id="12a870fd-6100-40d9-a835-06e665a80d83" class="bulleted-list"><li style="list-style-type:square"><code>Collections.unmodifiableSet</code></li></ul><ul id="59f5b81c-2c57-45fa-b389-46ec285df51c" class="bulleted-list"><li style="list-style-type:square"><code>Collections.unmodifiableMap</code></li></ul></li></ul><ul id="e294ea13-3d1a-4431-988b-4ac2e680f562" class="bulleted-list"><li style="list-style-type:circle"><a href="http://docs.oracle.com/javase/8/docs/api/?java/lang/UnsupportedOperationException.html"><code>Unsupported­Operation­Exception</code></a> 를 활용해서 <code>add</code> , <code>put</code> 등 mutations를 방지하세요</li></ul><ul id="f9d21c23-2d14-4a83-b65b-173959db7833" class="bulleted-list"><li style="list-style-type:circle">mutable한 collection을 다른 프로그램에 전달하기 전에 이 collection을 수정할수 없도록 wrapper 할 수 있습니다.</li></ul><ul id="b232910e-ca1b-4428-991d-f519503bdd87" class="bulleted-list"><li style="list-style-type:circle"><code>final</code> 참조는 Object에서는 수정이 가능합니다.</li></ul><ul id="d8cf6b6c-1e90-4ef5-b89f-84e1cbbfc662" class="bulleted-list"><li style="list-style-type:circle"><code>Collections</code> 는 <code>Collections.emptyList</code> 를 통해서 빈 불변 리스트를 생성할 수 있습니다.<ul id="1c72f7b2-952b-4c5b-bf28-67d984604683" class="bulleted-list"><li style="list-style-type:square">이 빈 리스트는 <code>null</code> 을 사용하는 것을 줄일 수 있는 장점이 있습니다.</li></ul><p id="aeb90fab-19e9-4c54-bf6d-c0589bdbc4e3" class="">
+</p><p id="52ec1cfb-2296-4259-9163-c725172f057f" class="">
+</p><p id="74b11ea3-5ba8-440a-a641-c9da0a145ae0" class="">
+</p></li></ul></li></ul><h2 id="c88b9667-413c-4a92-b02c-5aff71173792" class="">Summary</h2><ul id="568e5be6-7887-47a8-8f74-4a0121297d02" class="bulleted-list"><li style="list-style-type:disc">mutability는 성능과 편의성에 우위를 가지지만, 버그의 위험성을 가진다. 또한 정확성을 추론하기에 높은 비용을 요구한다.</li></ul><ul id="c22f9dca-e3a1-4726-b24b-11f512f1d187" class="bulleted-list"><li style="list-style-type:disc">immutable 객체의 차이에 대해서 <code>Strin</code> 은 immutable 객체, <code>final</code> 은 불변 참조를 이해한다.</li></ul><ul id="5c7d19eb-f0b5-4735-a5f0-25797d054b92" class="bulleted-list"><li style="list-style-type:disc">immutablility는 결과적으로 버그로부터 안전하고 이해하기 쉬우며, 변화에 준비된 것을 확인 할 수 있다.<ul id="5754c5d0-5fae-4d07-ae2c-d9a108182252" class="bulleted-list"><li style="list-style-type:circle">물론 비용에 대한 단점도 존재한다… </li></ul></li></ul></div></article></body></html>
