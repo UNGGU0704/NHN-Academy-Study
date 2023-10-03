@@ -24,7 +24,7 @@ public class GamePrepare {
         Random random = new Random();
 
         for (int i = 0; i < unitCount; i++) {
-            int randomNumber = random.nextInt(4);
+            int randomNumber = random.nextInt(5);
             String unitName = terrans[randomNumber].getName();
             String unitRace = "Terran";
             int unitPower = terrans[randomNumber].getPoewer();
@@ -44,9 +44,9 @@ public class GamePrepare {
         Random random = new Random();
 
         for (int i = 0; i < unitCount; i++) {
-            int randomNumber = random.nextInt(4);
+            int randomNumber = random.nextInt(5);
             String unitName = protos[randomNumber].getName();
-            String unitRace = "PROTOS";
+            String unitRace = "Protos";
             int unitPower = protos[randomNumber].getPoewer();
             int unitDefense = protos[randomNumber].getDefense();
             boolean unitFlyable = protos[randomNumber].getFlyable();
@@ -65,9 +65,9 @@ public class GamePrepare {
         Random random = new Random();
 
         for (int i = 0; i < unitCount; i++) {
-            int randomNumber = random.nextInt(4);
+            int randomNumber = random.nextInt(5);
             String unitName = zergs[randomNumber].getName();
-            String unitRace = "PROTOS";
+            String unitRace = "Zerg";
             int unitPower = zergs[randomNumber].getPoewer();
             int unitDefense = zergs[randomNumber].getDefense();
             boolean unitFlyable = zergs[randomNumber].getFlyable();

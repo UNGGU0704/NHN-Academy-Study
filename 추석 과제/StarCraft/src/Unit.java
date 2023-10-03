@@ -25,8 +25,9 @@ public class Unit {
 
         int afterAttack = attackedUnit.getDefense() - this.power;
 
+
         attackedUnit.setDefense(afterAttack);
-        
+
         return true;
     };
 
