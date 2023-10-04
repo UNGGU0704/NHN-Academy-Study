@@ -18,7 +18,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [6-1. Exceptions](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Exception.md) <br>
 [7. Designing Specifications](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Designing%20Specifications.md) <br>
 [8. Avoiding Debugging](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Avoiding%20Debugging.md) <br>
-[9. Mutability & Immutability] <br>
+[9. Mutability & Immutability](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Mutability%20%26%20Immutability.md) <br>
 [10. Recursion](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Recursion.md) <br>
 
 ---
