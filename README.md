@@ -20,6 +20,9 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [8. Avoiding Debugging](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Avoiding%20Debugging.md) <br>
 [9. Mutability & Immutability](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Mutability%20%26%20Immutability.md) <br>
 [10. Recursion](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Recursion.md) <br>
+[11. Debugging]() <br>
+[12 Abstract Data Types](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Abstract%20Data%20Types.md) <br>
+[13. Abstraction Functions & Rep Invariants](https://github.com/UNGGU0704/NHN-Academy-Study/blob/main/공부/MIT%206.005-%20Software%20Construction%20/Abstraction%20Functions%20%26%20Rep%20Invariants.md) <br>
 
 ---
 
