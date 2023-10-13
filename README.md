@@ -41,5 +41,5 @@ NHN 아카데미에서 배우는것을 기록합니다.
 --- 
 
 ### 데이터 베이스
-[1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md)
+[1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md) <br>
 [2. 관계 모델](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/2.%20관계%20모델.md)
