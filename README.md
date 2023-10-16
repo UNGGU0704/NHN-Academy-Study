@@ -27,6 +27,8 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [12. Abstract Data Types](https://github.com/UNGGU0704/nhnacademy-study/blob/main/MIT%206.005-%20Software%20Construction%20/Abstract%20Data%20Types.md) <br>
 [13. Abstraction Functions & Rep Invariants](https://github.com/UNGGU0704/nhnacademy-study/blob/main/MIT%206.005-%20Software%20Construction%20/Abstraction%20Functions%20%26%20Rep%20Invariants.md) <br>
 [14. Interface](https://github.com/UNGGU0704/nhnacademy-study/blob/main/MIT%206.005-%20Software%20Construction%20/Testing.md) <br>
+[15. Equality](https://github.com/UNGGU0704/nhnacademy-study/blob/main/MIT%206.005-%20Software%20Construction%20/Equality.md) <br>
+[16. Recursive Data Type](https://github.com/UNGGU0704/nhnacademy-study/blob/main/MIT%206.005-%20Software%20Construction%20/Recursive%20Data%20Types.md) <br>
 
 ---
 
