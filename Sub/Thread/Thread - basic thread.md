@@ -1,4 +1,4 @@
-# Thread - 1(23.10.17)
+# Thread - basic thread(23.10.17)
 
 - [x]  Process vs Thread
 - [x]  Thread 클래스 만들기
