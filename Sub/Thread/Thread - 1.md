@@ -452,7 +452,42 @@
     ```
     
     → 실행 순서 보장 완료!
-    
+
+### Class 내에서 Thread를 field로 포함
+
+- Runnable interface를 구현하는 class가 필요함 이걸 class내에 Thread Instance로 관리
+- 자신이 Thread를 관리하므로 더 많은 처리가 가능
+- **예시 소스 코드 (`SelfRunnableCounter.java`)**
+  ```java
+  public class SelfRunnableCounter implements Runnable {
+    int count;
+    int maxCount;
+    Thread thread;
+
+    SelfRunnableCounter(String name, int maxCount) {
+        this.maxCount = maxCount;
+        count = 0;
+        thread = new Thread(this, name);
+    }
+
+    public void start() {
+        thread.start();
+    }
+
+    @Override
+    public void run() {
+        while (count < maxCount) {
+            try {
+                System.out.println(count++);
+                thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+}
+
+
 
 ### Thread의 Interrupt
 
