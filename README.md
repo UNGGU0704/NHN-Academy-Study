@@ -51,6 +51,6 @@ NHN 아카데미에서 배우는것을 기록합니다.
 ### Sub course
 - **Thread**
   - [Basic Thread](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20basic%20thread.md) <br>
-  - [Synchronization](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20synchronization) <br>
+  - [Synchronization](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20synchronization.md) <br>
   - [Thread State](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20thread%20state.md) <br>
   - [Thread pool, daemon](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20pool%2C%20daemon.md) <br>
