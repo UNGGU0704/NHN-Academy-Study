@@ -18,7 +18,11 @@ public class Consumer implements Runnable {
     public void run() {
 		while (!Thread.interrupted()) {
             if (customercount++ < 5) {
-                store.enter();
+                try {
+                    store.enter();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             } else {
                 try {
                     Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 10000));

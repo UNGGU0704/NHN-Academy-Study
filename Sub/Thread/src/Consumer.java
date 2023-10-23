@@ -21,7 +21,7 @@ public class Consumer implements Runnable {
                 store.enter();
             } else {
                 try {
-                    Thread.sleep(ThreadLocalRandom.current().nextInt(11));
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 10000));
                     store.buy();
                     customercount--;
                } catch (InterruptedException e) {

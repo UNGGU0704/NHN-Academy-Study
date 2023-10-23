@@ -22,7 +22,7 @@ public class Producer implements Runnable {
                 index++;
                 str = index + "번 째 물건";
                 store.sell(new Thing(str));
-                Thread.sleep(ThreadLocalRandom.current().nextInt(11));
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1000,10000));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
