@@ -18,7 +18,7 @@
 - `{` 로 시작하여 `}` 로 끝난다.
 - 각 이름 뒤에는 `:` 가 오고 `,` 로 구분한다.
     
-    ![Untitled](JSON%20c8f30c6fe98c4b63883ba2930ef31592/Untitled.png)
+    ![Untitled](img/Untitled.png)
     
     - { }
     - { "name" : "삼각형" }
@@ -31,7 +31,7 @@
 - **[**(왼쪽 대괄호)로 시작하여 **]**(오른쪽 대괄호)로 끝난다
 - 값은 **,**(쉼표)로 구분 된다
     
-    ![Untitled](JSON%20c8f30c6fe98c4b63883ba2930ef31592/Untitled%201.png)
+    ![Untitled](img/Untitled%201.png)
     
     - [1, 2, 3]
     - [1, "2", 3.0]
@@ -47,7 +47,7 @@
 - object
 - 배열
 
-![Untitled](JSON%20c8f30c6fe98c4b63883ba2930ef31592/Untitled%202.png)
+![Untitled](img/Untitled%202.png)
 
 ### String
 
@@ -55,11 +55,11 @@
 - 문자는 단일 문자열로 표시된다
 - C 또는 Java 문자열과 매우 유사하다
 
-![Untitled](JSON%20c8f30c6fe98c4b63883ba2930ef31592/Untitled%203.png)
+![Untitled](img/Untitled%203.png)
 
 ### Number
 
 - 8진수 및 16진수 형식이 사용되지 않는다
 - º이외에 C 또는 Java 숫자와 매우 유사하다
 
-![Untitled](JSON%20c8f30c6fe98c4b63883ba2930ef31592/Untitled%204.png)
+![Untitled](img/Untitled%204.png)
