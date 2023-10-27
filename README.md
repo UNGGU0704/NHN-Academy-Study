@@ -47,6 +47,8 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [2. 관계 모델](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/2.%20관계%20모델.md) <br>
 [3. SQL](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/3.%20SQL.md) <br>
 [4. 과제1](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/4.%20과제1.md) <br>
+[5. ER Model](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/5.%20ER%20Model.md) <br>
+[6. 스키마 정제와 정규형](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/6.%20스키마%20정제와%20정규형.md) <br>
 
 ---
 
@@ -60,4 +62,10 @@ NHN 아카데미에서 배우는것을 기록합니다.
 - **Nework**
   - [Socket](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Socket.md) <br>
   - [Computer Network](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Computer%20Network.md) <br>
-  - [L7 전송계층, L4 응용계층](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L7%20응용계층%20L4%20전송%20계층.md) <br>
+  - [L4, L7](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L7%20응용계층%20L4%20전송%20계층.md) <br>
+  - [L2, L3](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L2%2C%20L3%20.md) <br>
+  - [Http](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/HTTP.md) <br>
+
+
+
+ 
