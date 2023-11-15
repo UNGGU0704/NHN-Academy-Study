@@ -1,0 +1,9 @@
+
+a
+java:S2095h"DUse try-with-resources or close this "Socket" in a "finally" clause.(ø×†é8ıŞÀÁ¸1
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ê­ºøúÿÿÿÿ8ıŞÀÁ¸1
+h
+java:S4143\"FVerify this is the index that was intended; it was already set before.(ÂÀ¡„şÿÿÿÿ8‚ßÀÁ¸1
+X	java:S125l"<This block of commented-out lines of code should be removed.(ÔÁ’¨8…ßÀÁ¸1
+L	java:S106|"+Replace this use of System.out by a logger.(ñ—¸½úÿÿÿÿ8…ßÀÁ¸1
+H	java:S106‚"+Replace this use of System.out by a logger.(ñÜÿ8…ßÀÁ¸1
