@@ -33,12 +33,12 @@ NHN 아카데미에서 배우는것을 기록합니다.
 ---
 
 ### dev-setting
-[Java Concepts](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/JAVA%20Concepts.md) <br>
-[Computer Architecture](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/Computer_Architecture.md) <br>
-[Git](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/git.md) <br>
-[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/Maven.md) <br>
-[JUnit](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/Junit%2CPackage%2Cjar.md) <br>
-[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/Maven.md) <br>
+[Java Concepts](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/JAVA%20Concepts.md) <br>
+[Computer Architecture](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Computer_Architecture.md) <br>
+[Git](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/git.md) <br>
+[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
+[JUnit](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Junit%2CPackage%2Cjar.md) <br>
+[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
 
 --- 
 
