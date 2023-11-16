@@ -32,7 +32,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 ---
 
-### NHN Java
+### dev-setting
 [Java Concepts](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/JAVA%20Concepts.md) <br>
 [Computer Architecture](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/Computer_Architecture.md) <br>
 [Git](https://github.com/UNGGU0704/nhnacademy-study/blob/main/NHN-Basic%20Java/git.md) <br>
