@@ -17,20 +17,24 @@ public class Iterators {
     return reduce(() -> es, biFunction, init);
   }
 
+
   /**
    * 두 Iterator의 equals를 비교한다.
    * 각 iterator의 요소를 equals로 비교하고 reduce로 확인한다.
    * 그 뒤에 다음 요소의 유무를 판별한다.
    * @param xs
    * @param ys
-   * @return boolean 요소의 equals 비ㄴ
-   * @param <T>
+   * @return boolean 요소의 equals 비교
+   * @throw InfiniteIterator에 대해서는 Exception을 던집니다.
+   * @precondition Iterator는 null 아님
    */
   public static <T> boolean equals(Iterator<T> xs, Iterator<T> ys) {
     if (xs instanceof InfiniteIterator || ys instanceof InfiniteIterator)
       throw new IllegalArgumentException("equals : InfiniteIterator는 equals 할 수 없습니다.");
 
+
     Iterator<Boolean> zipIterator = zip(Object::equals, xs, ys);
+
 
     return reduce(zipIterator, (o1,o2) -> o1 && o2, true) && (xs.hasNext() == ys.hasNext());
   }
@@ -42,11 +46,15 @@ public class Iterators {
    * 요소가 하나 이상일 떼 ->  separator 를 추가하여 출력
    * @param es
    * @param separator
-   * @return
-   * @param <T>
+   * @return append된 StringBuilder를 return 합니다.
+   * @throw InfiniteIterator에 대해서는 Exception을 던집니다.
+   * @precondition Iterator는 null 아님
    */
   public static <T> String toString(Iterator<T> es, String separator) { // TODO: redude를 써서
     StringBuilder sb = new StringBuilder();
+
+    if (es instanceof InfiniteIterator)
+      throw new IllegalArgumentException("toString : InfiniteIterator는 출력할 수 없습니다.");
 
     //원소가 하나일 때
     if (es.hasNext()) {
@@ -56,6 +64,7 @@ public class Iterators {
     //원소가 둘 이상일 때
     if (es.hasNext()) {
       sb.append(reduce(es, (str1, str2) -> (str1 + separator) + str2, ""));
+
     }
 
     return sb.toString();
@@ -78,29 +87,37 @@ public class Iterators {
    * @param iterator 반복자
    * @param predicate 요소에 대한 필터
    * @return 필터 조건에 만족하는 요소를 return 합니다.
+   * @throw Integer.MAX_VALUE 이상의 탐색에 대해서는 Exception을 던집니다.
+   * @precondition Iterator는 null 아님
    */
   public static <E> Iterator<E> filter(Iterator<E> iterator, Predicate<E> predicate) {
     // TODO: Bug를 찾을 수 있는 test code를 IteratorTest.filterTest에 쓰고, Bug 고치기
     // findFirst를 써서 풀기
     return new Iterator<E>() {
+      private final long limit = Integer.MAX_VALUE;
       private E current;
+      private long count = 0;
 
       // 필터에 맞는 다음 요소가 있는지를 체크
       public boolean hasNext() {
-        if(current != null) {
+        if (current != null)
           return true;
-        }
+
+        if (count > limit)
+          throw new IllegalArgumentException("filter : Integer.MAX_VALUE 이상의 탐색은 하지 않습니다.");
+
         return (current = findFirst(iterator, predicate)) != null;
       }
 
       //필터에 맞는 다음 요소를 가져옴
       public E next() {
-        if (!hasNext()) {
-          throw new NoSuchElementException("filter");
-        }
+        if (!hasNext())
+          throw new NoSuchElementException("filter : 찾을 수 있는 요소가 없습니다.");
+
 
         E old = current;
         current = findFirst(iterator, predicate);
+        count++;
         return old;
       }
     };
@@ -130,11 +147,13 @@ public class Iterators {
     };
   }
 
-  /** iterator의 제한적인 탐색
+  /** InfiniteIterator를 maxSIze만큼의 Iterator로 생성해줍니다.
    *
    * @param iterator
    * @param maxSize
    * @return maxSize 밑이고 hasNext() 가 존재할시에 return 함
+   * @throw maxSize가 음수이면 Exception을 던집니다.
+   * @precondition Iterator는 null 아님
    */
 
   public static <T> Iterator<T> limit(Iterator<T> iterator, long maxSize) { // TODO
@@ -142,6 +161,7 @@ public class Iterators {
       throw new IllegalArgumentException("limit : maxSize가 음수임");
     return new Iterator<T>() {
       private long iteratorCount = 0;
+
       @Override
       public boolean hasNext() {
           return iterator.hasNext() && iteratorCount < maxSize;
@@ -152,6 +172,7 @@ public class Iterators {
         iteratorCount = Math.addExact(iteratorCount, 1);
         return iterator.next();
       }
+
     };
   }
 
@@ -159,6 +180,7 @@ public class Iterators {
    * 지정된 "Supplier'를 사용하여 요소를 무한으로 생성하는 무한 반복자 생성
    * @param supplier
    * @return T 타입의 무한 반복자
+   * @precondition Supplier는 Null이 아닙니다.
    */
   public static <T> InfiniteIterator<T> generate(Supplier<T> supplier) { // TODO:
     // TODO
@@ -189,7 +211,8 @@ public class Iterators {
    * 반복자가 몇개의 요소가 있는지를 return 합니다.
    * @param iterator
    * @return 반복자의 요소의 갯수
-
+   * @throw InfiniteIterator에 대해서는 Exception을 던집니다.
+   * @precondition Iterator는 null 아님
    */
   public static <E> long count(Iterator<E> iterator) {
     // TODO: reduce를 써서
