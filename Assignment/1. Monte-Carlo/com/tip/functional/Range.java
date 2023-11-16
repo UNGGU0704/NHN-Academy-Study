@@ -1,5 +1,6 @@
 package com.tip.functional;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public final class Range implements Iterable<Long> {
@@ -26,7 +27,11 @@ public final class Range implements Iterable<Long> {
     }
 
     public long max() {
-        return Math.subtractExact(endExclusive, 1);
+        try {
+            return Math.subtractExact(endExclusive, 1);
+        } catch (ArithmeticException e) {
+            throw new ArithmeticException("Range.max : long의 범위를 초과했습니다.");
+        }
     }
 
     public long min() {
@@ -38,7 +43,10 @@ public final class Range implements Iterable<Long> {
     }
 
     public long size() {
-        return Math.subtractExact(this.end(), this.min());
+        BigInteger end = BigInteger.valueOf(this.end());
+        BigInteger min = BigInteger.valueOf(this.min());
+
+        return end.subtract(min).longValue();
     }
 
     public Iterator<Long> iterator() {

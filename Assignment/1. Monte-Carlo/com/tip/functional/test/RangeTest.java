@@ -32,15 +32,24 @@ public class RangeTest {
                 .limit(Integer.MAX_VALUE).iterator(), new Range(1, (long) Integer.MAX_VALUE + 1).iterator()));
     }
 
+    /**
+     * int의 경계 값에 대해 테스트
+     * long의 size를 구할 때 테스트
+     */
     @Test
     void sizeTest() {
         assertTrue(new Range(5,6).size() == 1);
 
         assertTrue(new Range(1, Integer.MAX_VALUE).size() == (long) (Integer.MAX_VALUE - 1));
-        assertTrue(new Range(Integer.MIN_VALUE, 0).size() == Integer.MIN_VALUE * -1L);
+        assertEquals(new Range(Integer.MIN_VALUE, 0).size(), Integer.MIN_VALUE * -1L);
+
+        assertEquals(new Range(Long.MIN_VALUE, Long.MAX_VALUE ).size(), -1);
 
     }
 
+    /**
+     * 적절한 max와 min, end를 구하는 테스트
+     */
     @Test
     void MaxMinEndTest() {
         Range range = new Range(1, 5);
