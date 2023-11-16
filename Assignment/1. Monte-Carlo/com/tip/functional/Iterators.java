@@ -84,15 +84,23 @@ public class Iterators {
 
   /**
    * 반복자에 있어 특정 Predicate를 만족하는 요소만을 순회합니다.
+   * Predicate가 null
    * @param iterator 반복자
    * @param predicate 요소에 대한 필터
    * @return 필터 조건에 만족하는 요소를 return 합니다.
    * @throw Integer.MAX_VALUE 이상의 탐색에 대해서는 Exception을 던집니다.
    * @precondition Iterator는 null 아님
+   * Predicate가 null인 경우 디폴트 Predicate가 적용됩니다.
    */
   public static <E> Iterator<E> filter(Iterator<E> iterator, Predicate<E> predicate) {
+
     // TODO: Bug를 찾을 수 있는 test code를 IteratorTest.filterTest에 쓰고, Bug 고치기
     // findFirst를 써서 풀기
+    if (predicate == null) {
+      predicate = (x) -> true;
+    }
+
+    Predicate<E> finalPredicate = predicate;
     return new Iterator<E>() {
       private final long limit = Integer.MAX_VALUE;
       private E current;
@@ -106,7 +114,7 @@ public class Iterators {
         if (count > limit)
           throw new IllegalArgumentException("filter : Integer.MAX_VALUE 이상의 탐색은 하지 않습니다.");
 
-        return (current = findFirst(iterator, predicate)) != null;
+        return (current = findFirst(iterator, finalPredicate)) != null;
       }
 
       //필터에 맞는 다음 요소를 가져옴
@@ -116,7 +124,7 @@ public class Iterators {
 
 
         E old = current;
-        current = findFirst(iterator, predicate);
+        current = findFirst(iterator, finalPredicate);
         count++;
         return old;
       }
@@ -132,17 +140,30 @@ public class Iterators {
     return null;
   }
 
+  /**
+   * 무한 반복자를 생성합니다.
+   * UnaryOperator<T> f 가 null 이 입력시에는 디폴트 연산자 x -> x 가 들어갑니다.
+   * @param seed
+   * @param f
+   * @return InfiniteIterator<T>
+   *
+   */
   public static <T> InfiniteIterator<T> iterate(T seed, UnaryOperator<T> f) {
+    //f가 없을시에는 같은 값을 계속해서 생성해냄
+    if (f == null) {
+      f = x -> x;
+    }
+
+    UnaryOperator<T> finalF = f;
     return new InfiniteIterator<T>() {
       T current = seed;
 
       @Override
       public T next() {
         T old = current;
-        current = f.apply(current);
+        current = finalF.apply(current);
         return old;
       }
-
 
     };
   }
