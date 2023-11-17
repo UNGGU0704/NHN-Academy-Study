@@ -42,7 +42,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 --- 
 
-### 데이터 베이스
+### Database
 [1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md) <br>
 [2. 관계 모델](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/2.%20관계%20모델.md) <br>
 [3. SQL](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/3.%20SQL.md) <br>
@@ -50,8 +50,9 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [5. ER Model](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/5.%20ER%20Model.md) <br>
 [6. 스키마 정제와 정규형](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/6.%20스키마%20정제와%20정규형.md) <br>
 [7. 디스크와 파일](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
-[8. 디스크와 파일](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
-[9. 디스크와 파일](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
+[8. 파일 조직과 인덱스](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/8.%20파일%20조직과%20인덱스.md) <br>
+[9. 관계 대수와 관계 해석](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
+
 ---
 
 ### Sub course
@@ -72,6 +73,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 - **JSON**
   - [JSON](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON.md) <br>
   - [JSON in Java](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON%20in%20Java.md) <br>
+
 
 
  
