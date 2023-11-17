@@ -3,3 +3,9 @@
 java:S5786"Remove this 'public' modifier.(Í­•¹8ƒ¬Ä±1
 @
 java:S5786"Remove this 'public' modifier.(Ç£çøÿÿÿÿ8ƒ¬Ä±1
+>
+java:S5785"Use assertNotEquals instead.(†È¶úÿÿÿÿ8ò´†½1
+6
+java:S5785"Use assertEquals instead.(ƒ¹‘8ò´†½1
+;
+java:S5785"Use assertEquals instead.(´èÙ©şÿÿÿÿ8ò´†½1

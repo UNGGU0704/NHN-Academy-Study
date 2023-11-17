@@ -1,7 +1,19 @@
 
-O
-java:S2699$"-Add at least one assertion to this test case.(¾­òùÿÿÿÿ8ıõå¼1
+;
+java:S5786"Remove this 'public' modifier.(ã­îı8ı‚ù½1
+;
+java:S57862"Remove this 'public' modifier.(á„ĞÊ8ı‚ù½1
 @
-java:S5786"Remove this 'public' modifier.(¨Æêíÿÿÿÿÿ8ú´Éä¼1
+java:S5786G"Remove this 'public' modifier.(¨Æêíÿÿÿÿÿ8ı‚ù½1
 @
-java:S5786"Remove this 'public' modifier.(•İŠ†ÿÿÿÿÿ8‰ÚÉä¼1
+java:S5786"Remove this 'public' modifier.(•İŠ†ÿÿÿÿÿ8ı‚ù½1
+
+java:S5778'"bRefactor the code of the lambda to have only one invocation possibly throwing a runtime exception.(âŠºŒ8ş‚ù½1
+„
+java:S5778B"bRefactor the code of the lambda to have only one invocation possibly throwing a runtime exception.(Ôİ·­ıÿÿÿÿ8ş‚ù½1
+s
+java:S3415l"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(€ıÎ8ÿ‚ù½1
+s
+java:S3415m"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÚáøÊ8ÿ‚ù½1
+„
+java:S5778o"bRefactor the code of the lambda to have only one invocation possibly throwing a runtime exception.(ê«£˜øÿÿÿÿ8ÿ‚ù½1
