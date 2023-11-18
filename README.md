@@ -55,24 +55,23 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 ---
 
-### Sub course
-- **Thread**
-  - [Basic Thread](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20basic%20thread.md) <br>
-  - [Synchronization](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20synchronization.md) <br>
-  - [Thread State](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20thread%20state.md) <br>
-  - [Thread pool, daemon](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20pool%2C%20daemon.md) <br>
+### Thread
+- [Basic Thread](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20basic%20thread.md) <br>
+- [Synchronization](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20synchronization.md) <br>
+- [Thread State](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20thread%20state.md) <br>
+- [Thread pool, daemon](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Thread/Thread%20-%20pool%2C%20daemon.md) <br>
 
-- **Nework**
-  - [Socket](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Socket.md) <br>
-  - [Computer Network](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Computer%20Network.md) <br>
-  - [L4, L7](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L7%20응용계층%20L4%20전송%20계층.md) <br>
-  - [L2, L3](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L2%2C%20L3%20.md) <br>
-  - [Http](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/HTTP.md) <br>
-  - [scurl](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Sub/Java%20Networking/scurl) <br>
+### Conputer Network
+- [Socket](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Socket.md) <br>
+- [Computer Network](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/Computer%20Network.md) <br>
+- [L4, L7](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L4%2C%20L7.md) <br>
+- [L2, L3](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/L2%2C%20L3%20.md) <br>
+- [Http](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/Java%20Networking/HTTP.md) <br>
+- [scurl](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Sub/Java%20Networking/scurl) <br>
 
-- **JSON**
-  - [JSON](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON.md) <br>
-  - [JSON in Java](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON%20in%20Java.md) <br>
+### JSON
+- [JSON](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON.md) <br>
+- [JSON in Java](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON%20in%20Java.md) <br>
 
 
 
