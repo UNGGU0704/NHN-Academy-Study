@@ -32,23 +32,12 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 ---
 
-### dev-setting
-[Java Concepts](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/JAVA%20Concepts.md) <br>
-[Computer Architecture](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Computer_Architecture.md) <br>
-[Git](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/git.md) <br>
-[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
-[JUnit](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Junit%2CPackage%2Cjar.md) <br>
-[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
-
---- 
-
-### servlet-jsp
+### Servlet-Jsp
 [1. web](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/1.%20Web.md) <br>
 [2. CGI](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/2.%20CGI.md) <br>
 [3. servlet](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/3.%20servlet.md) <br>
 [4. Java EE, Proxy](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/4.%20Java%20EE%2C%20Proxy.md) <br>
 
----
 
 ### Database
 [1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md) <br>
@@ -81,6 +70,22 @@ NHN 아카데미에서 배우는것을 기록합니다.
 - [JSON](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON.md) <br>
 - [JSON in Java](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Sub/JSON/JSON%20in%20Java.md) <br>
 
+---
 
+### dev-setting
+[Java Concepts](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/JAVA%20Concepts.md) <br>
+[Computer Architecture](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Computer_Architecture.md) <br>
+[Git](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/git.md) <br>
+[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
+[JUnit](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Junit%2CPackage%2Cjar.md) <br>
+[Maven](https://github.com/UNGGU0704/nhnacademy-study/blob/main/dev-setting/Maven.md) <br>
+
+--- 
+
+### Assignment
+
+[Monte-Carlo](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/1.%20Monte-Carlo) <br>
+
+[StarCraft](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/추석%20과제/StarCraft) <br>
 
  
