@@ -42,6 +42,14 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 --- 
 
+### servlet-jsp
+[1. web](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/1.%20Web.md) <br>
+[2. CGI](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/2.%20CGI.md) <br>
+[3. servlet](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/3.%20servlet.md) <br>
+[4. Java EE, Proxy](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/4.%20Java%20EE%2C%20Proxy.md) <br>
+
+---
+
 ### Database
 [1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md) <br>
 [2. 관계 모델](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/2.%20관계%20모델.md) <br>
