@@ -1,4 +1,4 @@
-# HTML
+# HTML(23. 11. 21)
 
 ## HTML 이란?
 
@@ -73,6 +73,12 @@
     ```
     
 - 각 제목은 heading 요소 h1 ~ h6
+    - <h1>
+    - <h2>
+    - <h3>
+    - <h4>
+    - <h5>
+    - <h6>
     
     ```html
     <h1>h1 : 위기의 종식, 트럼프, 서둘러 백악관 출발!</h1> <-- 제일 크다 -->
@@ -88,6 +94,7 @@
 
 - 계층구조(목록)을 표현
 - 순서 없는 목록 : <ul>, <li>
+    
     ```html
     <ul>
         <li>우유</li>
@@ -99,6 +106,7 @@
     ```
     
 - 순서 있는 목록(Ordered) : <ol>, <li>
+    
     ```html
     <ol>
         <li>Avatar</li>
@@ -111,14 +119,17 @@
     
 
 ### **중요(Emphasis)와 강조(Strong importance)**
+
 - `<string>` `<b>`
     - <strong> 요소는 콘텐츠 자체의 중요성을 강조할 때 사용됨
     - <b> tag는 콘텐츠의 중요성 보다는 텍스트 자체에 주의를 끌기 위해서 사용됨
 
 ### Code를 나타낼 때
+
 - <code> : 일반적인 컴퓨터 코드를 나타냄
 
 ### 시간과 날짜 표시
+
 - 기계가 읽을 수 있는 명확한 시간/날짜 첨부
 - 기본 문법
     - YYYY : 2022 / 년
@@ -129,6 +140,7 @@
     - ss : 15 / 초
 
 ### Hyperlink
+
 - HTML 파일, 텍스트 파일, 이미지, 문서, 비디오와 오디오 파일 등 웹 상에 존재할 수 있는 모든 것을 연결
 
 ```html
@@ -136,6 +148,7 @@
 ```
 
 ### **URL 과 Path**
+
 - URL(Unified Resource Locator) : 웹 상의 어디에 위치하는지 결정하는 텍스트 문자열
 - Path
     - 같은 디렉터리(폴더):파일의 이름만 지정
@@ -145,9 +158,11 @@
 
 ### 공백과 \n을 표시할려면?
 
-- `<br/>`
+- <br/>
     - new line
-- `&nbsp;`
+- &nbsp;
+
+---
 
 ### DOCTYPE
 
@@ -188,14 +203,14 @@
     - 특수문자:32
     - 제어문자 : 33
     - 000 0000 ~ 111 1111
-- https://ko.wikipedia.org/wiki/ASCII
+- [https://ko.wikipedia.org/wiki/ASCII](https://ko.wikipedia.org/wiki/ASCII)
 - 한글은 표현 불가능..
 
 ### EUC - KR
 
 - 한글 완성형 인코딩
 - 8bit 문자 인코딩
-- https://uic.io/ko/charset/show/euc-kr/
+- [https://uic.io/ko/charset/show/euc-kr/](https://uic.io/ko/charset/show/euc-kr/)
 - **한글, 영어 사용하는 페이지에 적합**
 - 한글은 2byte를 사용하는 문자 집합
     - 16bit
