@@ -33,5 +33,13 @@
         <button type="submit">전송</button>
     </p>
 </form>
+
+<form method="post" action="/res">
+    <input type="text" name="userId" value="marco" />
+    <input type="text" name="name" value="unggu" />
+<%--    <input type="text" name="redirect" value="/hello" />--%>
+    <button type="submit">전송</button>
+</form>
+
 </body>
 </html>

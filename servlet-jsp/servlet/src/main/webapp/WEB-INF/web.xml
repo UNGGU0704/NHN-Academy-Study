@@ -3,6 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <welcome-file-list>
+        <welcome-file>/Main.html</welcome-file>
+    </welcome-file-list>
 
     <servlet>
         <servlet-name>helloServlet</servlet-name>
@@ -49,6 +52,16 @@
     <servlet-mapping>
         <servlet-name>requestServlet</servlet-name>
         <url-pattern>/req</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>responseServlet</servlet-name>
+        <servlet-class>com.nhnacademy.study.responseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>responseServlet</servlet-name>
+        <url-pattern>/res</url-pattern>
     </servlet-mapping>
 
 </web-app>
