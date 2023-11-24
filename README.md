@@ -37,7 +37,8 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [2. CGI](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/2.%20CGI.md) <br>
 [3. servlet](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/3.%20servlet.md) <br>
 [4. Java EE, Proxy](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/4.%20Java%20EE%2C%20Proxy.md) <br>
-
+[5. web.xml](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/5.%20web.xml.md) <br>
+[6. WAR](https://github.com/UNGGU0704/nhnacademy-study/blob/main/servlet-jsp/6.%20WAR.md) <br>
 
 ### Database
 [1. 데이버 베이스 개요](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/1.%20데이터베이스%20개요.md) <br>
@@ -49,6 +50,12 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [7. 디스크와 파일](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
 [8. 파일 조직과 인덱스](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/8.%20파일%20조직과%20인덱스.md) <br>
 [9. 관계 대수와 관계 해석](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
+
+
+### front-end
+
+[1. html](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/html.md) <br>
+[2. html 응답코드](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/http%20method%20응답%20코드.md) <br>
 
 ---
 
