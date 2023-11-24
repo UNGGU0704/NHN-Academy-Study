@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>read-cookie-test</title>
+</head>
+<body>
+<ol>
+    <li><a href="/set-cookie?locale=ko">ko</a></li>
+    <li><a href="/set-cookie?locale=en">en</a></li>
+    <li><a href="/read-cookie">/read-cookie</a></li>
+</ol>
+<button onclick="setCookieOnClick()">Set Cookie</button>
+
+<script>
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+
+
+        document.cookie = name + "=" + value + expires + "; path=/";
+
+
+    }
+
+    function setCookieOnClick() {
+        // 여기에 원하는 쿠키 이름, 값 및 유효 기간(days)을 설정하세요.
+        setCookie("exampleCookie", "exampleValue", 7);
+        alert("Cookie set successfully!");
+    }
+
+
+</script>
+
+</body>
+</html>

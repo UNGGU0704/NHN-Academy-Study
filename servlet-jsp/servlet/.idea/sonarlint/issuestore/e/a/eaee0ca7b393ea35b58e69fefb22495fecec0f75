@@ -1,0 +1,29 @@
+
+p
+java:S1989$"SHandle the following exception that could be thrown by "sendRedirect": IOException.(¡¶ÀÇ8…¢ËÙ¿1
+r
+java:S1989)"PHandle the following exception that could be thrown by "getWriter": IOException.( ¬èüýÿÿÿÿ8…¢ËÙ¿1
+o
+java:S1989C"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ˆÝÙJ8‡¢ËÙ¿1
+p
+java:S1989F"SHandle the following exception that could be thrown by "sendRedirect": IOException.(¡¶ÀÇ8‡¢ËÙ¿1
+X	java:S125E"<This block of commented-out lines of code should be removed.(™ÄÏØ8€¦ÌÙ¿1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8€¦ÌÙ¿1
+O
+java:S1128"-Remove this unused import 'java.util.Locale'.(åð×±ûÿÿÿÿ8€¦ÌÙ¿1
+Q
+java:S1128	"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿ8€¦ÌÙ¿1
+W
+java:S1128
+"5Remove this unused import 'java.util.ResourceBundle'.(ýÆ£¯øÿÿÿÿ8€¦ÌÙ¿1
+R
+java:S1128"5Remove this unused import 'java.util.logging.Logger'.(ƒ¥óš8€¦ÌÙ¿1
+@
+java:S1128"Remove this duplicated import.(²ðÕ…ýÿÿÿÿ8‡¢ËÙ¿1
+;
+java:S1128"Remove this duplicated import.(Š‰™Œ8‡¢ËÙ¿1
+S
+java:S1128"6Remove this unused import 'javax.servlet.http.Cookie'.(«Þªü8€¦ÌÙ¿1
+@
+java:S1128"Remove this duplicated import.(û÷Å›ÿÿÿÿÿ8‡¢ËÙ¿1
