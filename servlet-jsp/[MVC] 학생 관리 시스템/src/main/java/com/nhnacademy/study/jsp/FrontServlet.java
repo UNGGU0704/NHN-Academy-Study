@@ -25,13 +25,13 @@ public class FrontServlet extends HttpServlet {
 
     //    try {
             //실제 요청 처리할 servlet을 결정
-            String servletPath = resolveServlet(req.getServletPath());
-            RequestDispatcher rd = req.getRequestDispatcher(servletPath);
-
-            rd.include(req, resp);
+            //String servletPath = resolveServlet(req.getServletPath());
+            String servletPath = req.getServletPath();
+            String method = req.getMethod();
+            Command command = resolveCommand(servletPath, method);
 
             //실제 요청을 처리한 servlet이 'view'라는 request 속성값으로 view를 전달해 줌.
-            String view = (String) req.getAttribute("view");
+            String view = command.execute(req, resp);
             if (view.startsWith(REDIRECT_PREFIX)) {
 
                 log.error("redirect-url : {}", view.substring(REDIRECT_PREFIX.length() + 1));
@@ -81,5 +81,47 @@ public class FrontServlet extends HttpServlet {
 
         return processingServlet;
     }
+
+    private Command resolveCommand(String servletPath, String method) {
+        Command command = null;
+
+        // 서블릿 경로에 따라 적절한 Command 객체를 생성
+        switch (servletPath) {
+            case "/student.do":
+                if ("GET".equalsIgnoreCase(method)) {
+                    command = new StudentListController();
+                }
+                break;
+            case "/student-register.do":
+                if ("GET".equalsIgnoreCase(method)) {
+                    command = new StudentRegisterGetController();
+                    break;
+                } else if ("POST".equalsIgnoreCase(method)) {
+                    command = new StudentRegisterPostController();
+                    break;
+                }
+
+            case "/student-update.do":
+                if ("GET".equalsIgnoreCase(method)) {
+                    command = new StudentUpdateGetController();
+                    break;
+                } else if ("POST".equalsIgnoreCase(method)) {
+                command = new StudentUpdatePostController();
+                break;
+                }
+            case "/student-view.do":
+                command = new StudentViewGetController();
+                break;
+            case "/student-delete.do":
+                if ("POST".equalsIgnoreCase(method)) {
+                    command = new StudentDeleteController();
+                }
+                break;
+            // 여기에 다른 서블릿 경로에 따른 Command 추가
+        }
+
+        return command;
+    }
+
 
 }
