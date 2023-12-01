@@ -56,6 +56,11 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [8. 파일 조직과 인덱스](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/8.%20파일%20조직과%20인덱스.md) <br>
 [9. 관계 대수와 관계 해석](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
 
+### JDBC
+[1. JDBC란](https://github.com/UNGGU0704/nhnacademy-study/blob/main/JDBC/1.%20JDBC란.md) <br>
+[2. Connection Pool](https://github.com/UNGGU0704/nhnacademy-study/blob/main/JDBC/2.%20Connection%20Pool.md) <br>
+[3. Transaction](https://github.com/UNGGU0704/nhnacademy-study/blob/main/JDBC/3.%20Transaction.md) <br>
+
 
 ### front-end
 
