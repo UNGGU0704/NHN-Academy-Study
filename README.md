@@ -100,6 +100,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 --- 
 
 ### Assignment
+[java-servlet-jsp-Shopping-Mall](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/java-servlet-jsp-shoppingmall) <br>
 
 [Monte-Carlo](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/Monte-Carlo) <br>
 
