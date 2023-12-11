@@ -1,8 +1,6 @@
 <img src ="https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/9bd055a9-7fad-41c7-94d8-bd60a1a1886a" height ="150px" weight = "150px" >
 
-# NHN Academy Study
-
-## NHN 아카데미 JAVA 백엔드 4기 (23.08.28 ~ )
+# NHN 아카데미 JAVA 백엔드 4기 (23.08.28 ~ )
 
 NHN 아카데미에서 배우는것을 기록합니다.
 
@@ -55,6 +53,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 [7. 디스크와 파일](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
 [8. 파일 조직과 인덱스](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/8.%20파일%20조직과%20인덱스.md) <br>
 [9. 관계 대수와 관계 해석](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/7.%20디스크와%20파일.md) <br>
+[10. 병행성 제어](https://github.com/UNGGU0704/nhnacademy-study/blob/main/DB/10.%20병행성%20제어.md) <br>
 
 ### JDBC
 [1. JDBC란](https://github.com/UNGGU0704/nhnacademy-study/blob/main/JDBC/1.%20JDBC란.md) <br>
@@ -66,6 +65,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 [1. html](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/html.md) <br>
 [2. html 응답코드](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/http%20method%20응답%20코드.md) <br>
+[3. JavaScript](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/javascript.md) <br>
 
 ---
 
