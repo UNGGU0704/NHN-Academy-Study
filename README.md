@@ -65,6 +65,7 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 [1. html](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/html.md) <br>
 [2. html 응답코드](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/http%20method%20응답%20코드.md) <br>
+[3. JavaScript](https://github.com/UNGGU0704/nhnacademy-study/blob/main/front-end/javascript.md) <br>
 
 ---
 
