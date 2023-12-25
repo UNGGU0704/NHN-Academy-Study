@@ -10,30 +10,14 @@
 
 ---
 
-### ERD
+## ERD
 
-![er.png](resources/er.png)
-
-### 기술 스택
-
-[https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white](https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white)
-
-<img src="[https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)">
-
-<img src="[https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white)">
-
-<img src="[https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)">
-
-<img src="[https://img.shields.io/badge/Apache_Tomcat-F8DC75?style=for-the-badge&logo=apache-tomcat&logoColor=black](https://img.shields.io/badge/Apache_Tomcat-F8DC75?style=for-the-badge&logo=apache-tomcat&logoColor=black)">
-
-<img src="[https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white](https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white)">
-
-<img src="[https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)">
-
-<img src="[https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white](https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white)">
+<img src="resources/er.png" alt="ER Diagram" width="60%" height="60%">
 
 
-    
+## 기술 스택
+
+![JAVA](https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![MySQL](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/Apache_Tomcat-F8DC75?style=for-the-badge&logo=apache-tomcat&logoColor=black) ![Git](https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white) ![JSP](https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white)
 
 ## 쇼핑몰 동작
 
@@ -53,6 +37,10 @@
 ### 동작원리
 
 - **Java** 언어를 사용하여 **Servlet** - **JSP**를 이용한 쇼핑몰 웹 어플리케이션입니다.
+- 빌드 도구는 **Maven** 을 사용했습니다.
+- 서버는 **Apache Tomcat**을 사용합니다.
+
+
 - **MVC 패턴**을 적용해 Model과 View, Controller를 분리했습니다.
     - **FrontController**를 활용해 공통 코드에 대해서 코드의 중복을 제거했습니다.
     - **FrontController** 에서 매번 Command 객체를 생성하는 것을 `Controller Factroy`와 `@WebServlet` 를 통한 맵핑으로 최적화했습니다.
