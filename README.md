@@ -1,6 +1,8 @@
 <img src ="https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/9bd055a9-7fad-41c7-94d8-bd60a1a1886a" height ="150px" weight = "150px" >
 
-# NHN 아카데미 JAVA 백엔드 4기 (23.08.28 ~ )
+# NHN 아카데미 JAVA 백엔드 4기 (23. 08. 28 ~ 23.12. 29)
+
+> https://nhnacademy.github.io/
 
 NHN 아카데미에서 배우는것을 기록합니다.
 
@@ -102,11 +104,13 @@ NHN 아카데미에서 배우는것을 기록합니다.
 --- 
 
 ### Assignment
-[java-servlet-jsp-Shopping-Mall](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/java-servlet-jsp-shoppingmall) <br>
-
 [Monte-Carlo](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/Monte-Carlo) <br>
 
 [StarCraft](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/starcraft/StarCraft) <br>
 
 [nhn-mart](https://github.com/UNGGU0704/nhnacademy-study/tree/main/Assignment/nhn-mart) <br>
- 
+
+### Project
+
+[java-servlet-jsp-Shopping-Mall](https://github.com/UNGGU0704/nhnacademy-study/tree/main/project/java-servlet-jsp-shoppingmall) <br>
+
