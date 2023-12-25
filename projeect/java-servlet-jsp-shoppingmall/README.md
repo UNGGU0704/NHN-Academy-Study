@@ -34,6 +34,21 @@
 
 <img src="[https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white](https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white)">
 
+
+## 쇼핑몰 동작
+
+### 메인화면
+![main](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/fa1cb9d8-d77f-4879-9e9c-e4d403b18923)
+
+### 로그인 
+![login](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/b550f8cf-f044-4c79-b39a-d1fb6598f366)
+
+### 유저 정보 수정 
+![mypage](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/89b8217c-37e2-4402-adbe-4d795d94ce92)
+
+### 상품 관리 
+![product](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/5ce922ba-c0fb-4070-a8d4-403b023e4762)
+
 ### 동작원리
 
 - **Java** 언어를 사용하여 **Servlet** - **JSP**를 이용한 쇼핑몰 웹 어플리케이션입니다.
@@ -50,11 +65,3 @@
 - **Session** 을 사용하여 로그인된 사용자를 기억합니다.
     - **Filter**를 통해 관리자 세션과 유저 세션 그리고 로그인 유무의 유효성을 지속적으로 체크합니다.
     
-
-## 쇼핑몰 동작
-
-### 메인화면
-
-### 상품 정보
-
-### 관리 화면
