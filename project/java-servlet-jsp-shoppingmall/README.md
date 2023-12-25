@@ -37,17 +37,14 @@
 
 ## 쇼핑몰 동작
 
-### 메인화면
-![main](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/fa1cb9d8-d77f-4879-9e9c-e4d403b18923)
+| 메인화면 | 로그인 |
+| --- | --- |
+| ![main](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/fa1cb9d8-d77f-4879-9e9c-e4d403b18923) | ![login](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/b550f8cf-f044-4c79-b39a-d1fb6598f366) |
 
-### 로그인 
-![login](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/b550f8cf-f044-4c79-b39a-d1fb6598f366)
+| 마이 페이지 | 상품 관리 |
+| --- | --- |
+| ![mypage](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/89b8217c-37e2-4402-adbe-4d795d94ce92) | ![product](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/5ce922ba-c0fb-4070-a8d4-403b023e4762) |
 
-### 마이 페이지 
-![mypage](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/89b8217c-37e2-4402-adbe-4d795d94ce92)
-
-### 상품 관리
-![product](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/5ce922ba-c0fb-4070-a8d4-403b023e4762)
 
 
 ### 기능 구현 정리 
