@@ -1,5 +1,3 @@
-# Untitled
-
 # 쇼핑몰 Web Application 개발
 
 - [docs/1 ~ 15](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Assignment/java-servlet-jsp-shoppingmall/docs/03.%EB%AC%B8%EC%A0%9C/1.%EC%84%A4%EB%AA%85.adoc) 순서대로 읽고 개발합니다.
@@ -8,7 +6,7 @@
 - git clone 후 구현합니다.
 - main branch를 기준으로 feature/{학번} branch를 생성하여 진행합니다.
     - ex) feature/JBGW04-001, feature/JBGW04-002, …
-- 학번으로 생성한 branch를 origin에 push 합니다.(push는 2번이상 할 수 없습니다.
+- 학번으로 생성한 branch를 origin에 push 합니다.(push는 2번이상 할 수 없습니다.)
 
 ---
 
@@ -52,6 +50,8 @@
 ![product](https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/5ce922ba-c0fb-4070-a8d4-403b023e4762)
 
 
+### 기능 구현 정리 
+- [쇼핑몰구조](https://github.com/UNGGU0704/nhnacademy-study/blob/main/project/docs/%EC%87%BC%ED%95%91%EB%AA%B0%20%EA%B5%AC%EC%A1%B0.md)
 
 ### 동작원리
 
@@ -60,7 +60,7 @@
     - **FrontController**를 활용해 공통 코드에 대해서 코드의 중복을 제거했습니다.
     - **FrontController** 에서 매번 Command 객체를 생성하는 것을 `Controller Factroy`와 `@WebServlet` 를 통한 맵핑으로 최적화했습니다.
     - **ViewResolver**는 `Controller(Command)` 가 반환하는 viewName을 `WEB-INF/views` 하위에 있는 JSP 파일로 대응하는 역할을 합니다.
-    - ViewResolver에 의존하여 맵핑을 하여 JSP 파일의 위치가 WEB-INF/views에서 `WEB-INF/jsp` 로 변경이 되더라도 ViewResolver만 변경하면 됩니다.
+    - **ViewResolver**에 의존하여 맵핑을 하여 JSP 파일의 위치가 WEB-INF/views에서 `WEB-INF/jsp` 로 변경이 되더라도 **ViewResolver**만 변경하면 됩니다.
     - **JSP** 파일은 view의 기능만 담당하기에 비즈니스 로직이 담기지 않도록 설정했습니다.
 - **JDBC**를 활용하며 추가 요청이 필요할 때 연결을 재사용할 수 있도록 관리되는 **Connection Pool**을 **overhead**를 감소시키고 데이터베이스의 부하를 감소시켰습니다. (5로 설정)
     - **Connection**은 `ThreadLocal` 을 사용하여 관리합니다.
