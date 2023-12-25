@@ -1,6 +1,6 @@
 # 쇼핑몰 Web Application 개발
 
-- [docs/1 ~ 15](https://github.com/UNGGU0704/nhnacademy-study/blob/main/Assignment/java-servlet-jsp-shoppingmall/docs/03.%EB%AC%B8%EC%A0%9C/1.%EC%84%A4%EB%AA%85.adoc) 순서대로 읽고 개발합니다.
+- todo 순서대로 읽고 개발합니다.
 - 데이터베이스 교육에서 팀별로 설계한 쇼핑몰 ERD를 기반으로 Application을 구현합니다.
 - 모든 기능은 Servlet/JSP 환경에서 구현합니다
 - git clone 후 구현합니다.
