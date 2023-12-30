@@ -1,10 +1,16 @@
 <img src ="https://github.com/UNGGU0704/nhnacademy-study/assets/130115689/9bd055a9-7fad-41c7-94d8-bd60a1a1886a" height ="150px" weight = "150px" >
 
-# NHN 아카데미 JAVA 백엔드 4기 (23. 08. 28 ~ 23.12. 29)
+# NHN 아카데미 JAVA 백엔드 4기 (23. 08. 28 ~ 23. 12. 29)
 
 > https://nhnacademy.github.io/
 
 NHN 아카데미에서 배우는것을 기록합니다.
+
+### 배움 목표
+- School Code가 아닌 Product Code를 작성하는법을 배우기
+- Backend 기술에 필요한 CS 지식 학습하기
+- Wep Application Framework 학습하기
+- 이를 융합하여 Web Application 만들기
 
 ---
 
