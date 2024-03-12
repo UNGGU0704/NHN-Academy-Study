@@ -118,5 +118,5 @@ NHN 아카데미에서 배우는것을 기록합니다.
 
 ### Project
 
-[java-servlet-jsp-Shopping-Mall](https://github.com/UNGGU0704/nhnacademy-study/tree/main/project/java-servlet-jsp-shoppingmall) <br>
+[java-servlet-jsp-Shopping-Mall](https://github.com/unggu0704/java-servlet-jsp-shoppingmall) <br>
 
